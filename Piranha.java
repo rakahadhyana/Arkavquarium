@@ -52,6 +52,7 @@ public class Piranha extends Fish {
         }
         if (time >= timeT) {
             setIsFull(false);
+            setSpeed(2);
         }
         if (time >= timetoDeath) {
             listPiranha.remove(this);

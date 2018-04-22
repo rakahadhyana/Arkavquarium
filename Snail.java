@@ -47,20 +47,21 @@ public class Snail extends Entity {
 
     public void lifeCycle(LinkedList<Coins> listCoins) {
         int idx = 0;
-        if (listCoins.isEmpty()) {
+        if (!listCoins.isEmpty()) {
             Coins closeCoins = listCoins.get(idx);
             idx++;
 
             while (idx < listCoins.getIdx()) {
-                if (distanceTo(closeCoins) > distanceTo(listCoins.get(idx))) {
-                    closeCoins = listCoins.get(idx);
-                }
+            	System.out.println("index Coin : " +  idx);
+                    if (distanceTo(closeCoins) > distanceTo(listCoins.get(idx))) {
+                        closeCoins = listCoins.get(idx);
+                    }
                 idx++;
             }
             moveToCoins(closeCoins);
-            if (x == closeCoins.getX() && y - Aquarium.getPercentSize(10) <= closeCoins.getY()) {
+            if (Math.round(x) == (long) closeCoins.getX() && y - 10 <= closeCoins.getY()) {
                 Coins.money += closeCoins.getValue();
-                // listCoins.remove(closeCoins);
+                listCoins.remove(closeCoins);
             }
         }
     }

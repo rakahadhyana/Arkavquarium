@@ -31,8 +31,8 @@ public class Coins extends Entity {
      * the aquarium
      */
     public void move() {
-        if (y != Aquarium.getBorder(4)) {
-            y++;
+        if (y <= Aquarium.getBorder(2)) {
+            y += 2;
         }
     }
     /**
@@ -45,5 +45,8 @@ public class Coins extends Entity {
 
     public void draw() {
 
+    }
+    public void lifeCycle() {
+        move();
     }
 }

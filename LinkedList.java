@@ -37,25 +37,25 @@ class List<T> {
 public class LinkedList<T> extends List<T> {
     private List<T> firstList;
     private List<T> lastList;
-    private int size;
 
     public LinkedList() {
         firstList = new List<T>();
         lastList = new List<T>();
-        size = 0;
     }
 
      public static void main(String args[]) {
-         LinkedList<Guppy> linkedList = new LinkedList<Guppy>();
+         LinkedList<Coins> linkedList = new LinkedList<Coins>();
          Snail snail = new Snail();
          Guppy guppy = new Guppy();
          Guppy guppy2 = new Guppy();
-         linkedList.add(guppy2);
-         linkedList.add(guppy);
+         Coins coin = new Coins(0,0,100);
+         linkedList.add(coin);
+         linkedList.add(coin);
 //         linkedList.add(snail);
 //         linkedList.add(snail);
-//         linkedList.remove(snail2);
-         System.out.println(linkedList.find(guppy));
+         linkedList.remove(coin);
+         linkedList.remove(coin);
+         System.out.println(linkedList.getIdx());
      }
 
     public int find(T elmt) {
@@ -87,7 +87,6 @@ public class LinkedList<T> extends List<T> {
             lastList.setNext(new List<T>(elmt));
             lastList = lastList.getNext();
         }
-        size++;
     }
 
     public void remove(T elmt) {
@@ -113,6 +112,30 @@ public class LinkedList<T> extends List<T> {
             }
         }
     }
+//    public void remove(T element) {
+//    	int idx = find(element);
+//    	List<T> p = firstList;
+//    	if (element == firstList.getElmt()) {
+//    		firstList = p.getNext();
+//    		p = null;
+//    	} else if (element == lastList.getElmt()) {
+//    		for(int i = 0; i < idx - 1; ++i) {
+//    			p = p.getNext();
+//    		}
+//    		p.setNext(null);
+//    		lastList = p;
+//    	} else if (firstList == lastList) {
+//    		p = null;
+//    		firstList = null;
+//    		lastList = null;
+//    	} else {
+//    		for (int i = 0; i < idx - 1; ++i) {
+//    			p = p.getNext();
+//    		}
+//    		p.setNext(null);
+//    		p.setNext(p.getNext().getNext());
+//    	}
+//    }
 
     public T get(int idx) {
         List<T> temp = firstList;
@@ -123,6 +146,12 @@ public class LinkedList<T> extends List<T> {
     }
 
     public int getIdx() {
-        return this.size;
+    	List<T> p = firstList;
+        int idx = 0;
+        while(p != null){
+            idx++;
+            p = p.getNext();
+        }
+        return idx;
     }
 }

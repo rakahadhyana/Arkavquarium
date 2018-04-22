@@ -54,6 +54,7 @@ class Guppy extends Fish {
     		Food closeFood = listFood.get(idx);
     		idx++;
     		while (idx < listFood.getIdx()) {
+    			System.out.println("index food : " + idx);
     			if (distanceTo(closeFood) > distanceTo(listFood.get(idx))) {
     				closeFood = listFood.get(idx);
     			}
@@ -72,6 +73,7 @@ class Guppy extends Fish {
         }
         if (time >= timeT){
             setIsFull(false);
+            setSpeed(1);
         }
         if (time >= timetoDeath) {
             listGuppy.remove(this);
@@ -80,8 +82,9 @@ class Guppy extends Fish {
         if (time % timeC == 0 && isFull) {
             makeCoins(listCoins);
         }
-        if (foodCounter % 3 == 0 && foodCounter < getMaxPhase()) {
+        if (foodCounter > 0 && (foodCounter == 4 || foodCounter == 8) && getPhase() < getMaxPhase()) {
             grow();
+            foodCounter++;
         }
     }
 

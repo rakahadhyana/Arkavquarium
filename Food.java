@@ -21,19 +21,17 @@ class Food extends Entity implements Interface {
 	 * of the bottom of the aquarium
 	 */
     public void move() {
-        if (y != Aquarium.getBorder(4)) {
             y++;
-        }
     }
 
     public void draw() {
 
     }
 
-    // public void lifeCycle(LinkedList<Food> listFood) {
-    //     move();
-    //     if (y == Aquarium.getBorder(4)) {
-    //         listFood.remove(this);
-    //     }
-    // }
+    public void lifeCycle(LinkedList<Food> listFood) {
+        move();
+        if (y > Aquarium.getBorder(2)) {
+            listFood.remove(this);
+        }
+    }
 }
