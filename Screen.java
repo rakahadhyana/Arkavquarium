@@ -1,8 +1,12 @@
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import javax.swing.JPanel;
 
 public class Screen extends JPanel {
@@ -47,7 +51,7 @@ public class Screen extends JPanel {
 	private LinkedList<Guppy> ListGuppy = new LinkedList<Guppy>();
 	private LinkedList<Piranha> ListPiranha = new LinkedList<Piranha>();
 	private LinkedList<Food> ListFood = new LinkedList<Food>();
-	
+	private int Money = 500;
 	
 	public LinkedList<Coins> getListCoin() {
 		return ListCoin;
@@ -144,11 +148,15 @@ public class Screen extends JPanel {
 		} else {
 			g.drawImage(eggos3, 1217, (96), eggos1.getWidth(), eggos3.getHeight(), null);
 		}
+		
+		
 		int i = 0;
 		while (!ListCoin.isEmpty() && i < ListCoin.getIdx()) {
 			g.drawImage(coin, (int)(ListCoin.get(i).getX()*1366/100), (int)(ListCoin.get(i).getY()*700/100), coin.getWidth(), coin.getHeight(), null);
 			i++;
 		}
+		
+		
 		i =0;
 		while (!ListFood.isEmpty() && i < ListFood.getIdx()) {
 			if(ListFood.get(i) != null) {
@@ -156,6 +164,7 @@ public class Screen extends JPanel {
 			}
 			i++;
 		}
+		
 		i =0;
 		while (!ListGuppy.isEmpty() && i < ListGuppy.getIdx()) {
 			if (ListGuppy.get(i).getDirection() == Direction.RIGHT) {
@@ -201,6 +210,8 @@ public class Screen extends JPanel {
 			}
 			i++;
 		}
+		
+		
 		i =0;
 		while (!ListPiranha.isEmpty() && i < ListPiranha.getIdx()) {
 			if (ListPiranha.get(i).getDirection() == Direction.RIGHT) {
@@ -218,6 +229,13 @@ public class Screen extends JPanel {
 			}
 			i++;
 		}
+		
+		Graphics2D g2 = (Graphics2D)g;
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        Font font = new Font("Rockwell", Font.PLAIN, 38);
+        g2.setFont(font);
+        g2.drawString("MONEY", 92, 61);
+		
 	}
 
 }
