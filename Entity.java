@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public abstract class Entity implements Interface, Comparator<Entity> {
+public abstract class Entity implements Comparator<Entity> {
     public Entity() {
         this.x = Math.random() * Aquarium.getSize();
         this.y = Math.random() * Aquarium.getSize();
@@ -26,8 +26,6 @@ public abstract class Entity implements Interface, Comparator<Entity> {
         }
         return false;
     }
-
-    public abstract void draw();
 
     public void setX(double x) {
         this.x = x;

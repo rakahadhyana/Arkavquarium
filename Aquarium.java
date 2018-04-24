@@ -4,15 +4,11 @@
  * @author Funtastic4
  * @version 1.0
  */
-class Aquarium implements Interface {
+class Aquarium {
     private static final int size = 100;
     
 	public Aquarium() {
 
-    }
-
-    public void draw() {
-        // draw aquarium
     }
     /**
      * This returns the current size of the aquarium

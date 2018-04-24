@@ -4,7 +4,7 @@
  * @version 1.0
  */
 
-class Food extends Entity implements Interface {
+class Food extends Entity {
     /**
      * This constructs a food with a specified (x,y) position
      * @param x
@@ -22,10 +22,6 @@ class Food extends Entity implements Interface {
 	 */
     public void move() {
             y++;
-    }
-
-    public void draw() {
-
     }
 
     public void lifeCycle(LinkedList<Food> listFood) {

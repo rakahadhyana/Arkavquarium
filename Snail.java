@@ -68,5 +68,9 @@ public class Snail extends Entity {
     	return direction;
     }
     
+    
+    /**
+     * Attributes
+     */
     private Direction direction;
 }

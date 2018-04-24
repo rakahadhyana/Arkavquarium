@@ -33,8 +33,6 @@ public abstract class Fish extends Entity {
         }
     }
 
-    public abstract void draw();
-
     public void move() {
         if (Math.abs(getX() - getDestX()) < getRadius() && Math.abs(getY() - getDestY()) < getRadius()) {
             setDest(Math.random() * Aquarium.getSize(), Math.random() * Aquarium.getSize());

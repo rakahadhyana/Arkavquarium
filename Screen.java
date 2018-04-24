@@ -4,11 +4,14 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import java.awt.Font;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import javax.swing.JPanel;
 
+/**
+ * Attributes/objects that want to be shown in the screen
+ */
 public class Screen extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
@@ -51,47 +54,79 @@ public class Screen extends JPanel {
 	private LinkedList<Guppy> ListGuppy = new LinkedList<Guppy>();
 	private LinkedList<Piranha> ListPiranha = new LinkedList<Piranha>();
 	private LinkedList<Food> ListFood = new LinkedList<Food>();
-	
+	/**
+	 * This method returns the current list of coins
+	 * @return List of coins
+	 */	
 	public LinkedList<Coins> getListCoin() {
 		return ListCoin;
 	}
-
+	/**
+	 * This method sets this' list of coin to the input parameter
+	 * @param listCoin
+	 */
 	public void setListCoin(LinkedList<Coins> listCoin) {
 		ListCoin = listCoin;
 	}
-
+	/**
+	 * This method returns the current list of guppy 
+	 * @return List of guppy
+	 */
 	public LinkedList<Guppy> getListGuppy() {
 		return ListGuppy;
 	}
-
+	/**
+	 * This method sets this' list of guppy to the input parameter
+	 * @param listGuppy
+	 */
 	public void setListGuppy(LinkedList<Guppy> listGuppy) {
 		ListGuppy = listGuppy;
 	}
-
+	/**
+	 * This method returns the current list of piranha
+	 * @return List of piranha
+	 */
 	public LinkedList<Piranha> getListPiranha() {
 		return ListPiranha;
 	}
-
+	/**
+	 * This method sets this' list of piranha to the input parameter
+	 * @param listPiranha
+	 */
 	public void setListPiranha(LinkedList<Piranha> listPiranha) {
 		ListPiranha = listPiranha;
 	}
-
+	/**
+	 * This method returns the current list of food
+	 * @return List of food
+	 */
 	public LinkedList<Food> getListFood() {
 		return ListFood;
 	}
-
+	/**
+	 * This method sets this' list of food to the input parameter
+	 * @param listFood
+	 */	
 	public void setListFood(LinkedList<Food> listFood) {
 		ListFood = listFood;
 	}
-
+	/**
+	 * This method returns this' snail object
+	 * @return snail
+	 */
 	public Snail getSnail() {
 		return snail;
 	}
-
+	/**
+	 * This method sets this' snail object to the input parameter
+	 * @param snail
+	 */
 	public void setSnail(Snail snail) {
 		this.snail = snail;
 	}
-
+	/**
+	 * This method initiates each attribute with the corresponding image
+	 */
 	public Screen() {
 		try {
 			aquarium = ImageIO.read(getClass().getResourceAsStream("image/aquarium1.jpg"));
@@ -131,7 +166,9 @@ public class Screen extends JPanel {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * This method displays all the images that have been initiated to the screen
+	 */
 	public void paint(Graphics g) {
 		if(Main.mainmenu == true) {
 			g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), null);
@@ -158,11 +195,11 @@ public class Screen extends JPanel {
 			}
 			
 			if (Main.egg == 0) {
-				g.drawImage(eggos1, 1217, (96), eggos1.getWidth(), eggos1.getHeight(), null);
+				g.drawImage(eggos1, 1217, 87, eggos1.getWidth(), eggos1.getHeight(), null);
 			} else if (Main.egg == 1) {
-				g.drawImage(eggos2, 1217, (96), eggos1.getWidth(), eggos2.getHeight(), null);
+				g.drawImage(eggos2, 1217, 87, eggos1.getWidth(), eggos2.getHeight(), null);
 			} else {
-				g.drawImage(eggos3, 1217, (96), eggos1.getWidth(), eggos3.getHeight(), null);
+				g.drawImage(eggos3, 1217, 87, eggos1.getWidth(), eggos3.getHeight(), null);
 			}
 			
 			
@@ -247,12 +284,38 @@ public class Screen extends JPanel {
 			}
 			
 			Graphics2D g2 = (Graphics2D)g;
-	        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-	        Font font = new Font("Rockwell", Font.PLAIN, 38);
-	        g2.setFont(font);
-	        g2.drawString("MONEY", 92, 61);
-	        g2.drawString(Coins.money.toString(), 92, 100);
-			
+			Graphics2D g5 = (Graphics2D)g;
+			Graphics2D g6 = (Graphics2D)g;
+			g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+	        g5.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+	        g6.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+	        Font fontmoney = new Font("Monospaced", Font.BOLD, 38);
+	        Font fontmoneyred = new Font("Monospaced", Font.BOLD, 38);
+	        Font fontpiranha = new Font("Monospaced", Font.BOLD, 20);
+	        Font fontguppy = new Font("Monospaced", Font.BOLD, 20);
+	        Font fonteggos = new Font("Monospaced", Font.BOLD, 20);
+	        Font fontpressX = new Font("Plain", Font.BOLD, 14);
+	        g2.setFont(fontmoney);
+	        g6.setFont(fontmoneyred);
+	        if(Main.moneyLess) {
+	        	g6.setColor(Color.RED);
+	        	g6.drawString("MONEY", 110, 61);
+		        g6.drawString(Coins.money.toString(), 120, 100);
+	        	Main.moneyLess = false;
+	        	g6.setColor(Color.BLACK);
+	        }else {
+		        g2.drawString("MONEY", 110, 61);
+		        g2.drawString(Coins.money.toString(), 120, 100);
+	        }
+	        g2.setFont(fontpiranha);
+	        g2.drawString("1000", 1024, 170);
+	        g2.setFont(fontguppy);
+	        g2.drawString("500", 833, 170);
+	        g2.setFont(fonteggos);
+	        g2.drawString(Main.eggPrice.toString(), 1221, 170);
+	        g5.setFont(fontpressX);
+	        g5.drawString("Press X to exit", 107, 124);
+
 		}
 	}
 }

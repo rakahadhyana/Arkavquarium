@@ -8,10 +8,6 @@ public class Piranha extends Fish {
         Coins C = new Coins(getX(), getY(), (guppy.getPhase() + 1) * 500);
     }
 
-    public void draw() {
-
-    }
-
     public double distanceTo(Guppy other) {
         return Math.pow((Math.pow(other.getX() - getX(), 2) + (Math.pow(other.getY() - getY(), 2))), 0.5);
     }

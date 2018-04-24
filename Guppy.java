@@ -27,11 +27,7 @@ class Guppy extends Fish {
         Coins C = new Coins(getX(), getY(), getPhase() * 100);
         listCoins.add(C);
     }
-
-    public void draw() {
-
-    } //interface
-
+    
     public double distanceTo(Food other) {
         return Math.pow((Math.pow(other.getX() - getX(), 2) + (Math.pow(other.getY() - getY(), 2))), 0.5);
     }

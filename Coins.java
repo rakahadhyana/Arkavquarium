@@ -42,10 +42,7 @@ public class Coins extends Entity {
     public int getValue() {
         return this.value;
     }
-
-    public void draw() {
-
-    }
+    
     public void lifeCycle() {
         move();
     }
