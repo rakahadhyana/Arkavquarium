@@ -21,6 +21,9 @@ public class Snail extends Entity {
     public double distanceTo(Coins C) {
         return (Math.pow(Math.pow(C.getX() - x, 2) + Math.pow(C.getY() - y, 2), 0.5));
     }
+
+    @Override
+    public void move() {}
     
     /**
      * 
@@ -34,10 +37,6 @@ public class Snail extends Entity {
             setDirection(Direction.LEFT);
             x -= getSpeed();
         }
-    }
-
-    public void draw() {
-
     }
 
     public void lifeCycle(LinkedList<Coins> listCoins) {

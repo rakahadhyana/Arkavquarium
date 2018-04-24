@@ -20,6 +20,7 @@ class Food extends Entity {
 	 * a greater y as long as the value of y is not at 4%
 	 * of the bottom of the aquarium
 	 */
+	@Override
     public void move() {
             y++;
     }

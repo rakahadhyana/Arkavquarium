@@ -6,7 +6,6 @@ public class Piranha extends Fish {
 
     public void makeCoins(LinkedList<Coins> listCoins, Guppy guppy) {
         Coins C = new Coins(getX(), getY(), (guppy.getPhase() + 1) * 500);
-        listCoins.add(C);
     }
 
     public double distanceTo(Guppy other) {

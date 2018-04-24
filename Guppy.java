@@ -12,13 +12,6 @@ class Guppy extends Fish {
         setFoodCounter(0);
     }
 
-    public Guppy(double x, double y) {
-        super(x, y);
-        setSpeed(1);
-        setPhase(1);
-        setFoodCounter(0);
-    }
-
     public void grow() {
         setPhase(getPhase() + 1);
     }

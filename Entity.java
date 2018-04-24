@@ -1,9 +1,9 @@
 import java.util.Comparator;
 
-public abstract class Entity implements Comparator<Entity> {
+public abstract class Entity implements Comparator<Entity>, Interface {
     public Entity() {
-        this.x = Math.random() * 90;
-        this.y = Math.random() * 90;
+        this.x = Math.random() * Aquarium.getSize();
+        this.y = Math.random() * Aquarium.getSize();
         this.speed = 1;
     }
 
@@ -12,6 +12,9 @@ public abstract class Entity implements Comparator<Entity> {
         this.y = y;
         this.speed = 1;
     }
+
+    @Override
+    public abstract void move();
 
     @Override
     public int compare(Entity e1, Entity e2) {
