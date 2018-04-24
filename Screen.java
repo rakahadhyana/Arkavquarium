@@ -5,7 +5,6 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import java.awt.Font;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
@@ -36,8 +35,6 @@ public class Screen extends JPanel {
 	private BufferedImage ikanlaperflip;
 	private BufferedImage ikanlaper1flip;
 	private BufferedImage ikanlaper2flip;
-	private BufferedImage PiranhaDeadLeft;
-	private BufferedImage PiranhaDeadRight;
 	private BufferedImage PiranhaLeft;
 	private BufferedImage PiranhaRight;
 	private BufferedImage PiranhaSickLeft;
@@ -182,42 +179,28 @@ public class Screen extends JPanel {
 		}
 		else{
 			g.drawImage(aquarium, 0, 0, this.getWidth(), this.getHeight(), null);
-			g.drawImage(papan, 760, -25, papan.getWidth(), papan.getHeight(), null);
-			g.drawImage(papan, 960, -25, papan.getWidth(), papan.getHeight(), null);
-			g.drawImage(papan, 1160, -25, papan.getWidth(), papan.getHeight(), null);
-			g.drawImage(scroll, 0, 0, scroll.getWidth(), scroll.getHeight(), null);
-			g.drawImage(ikanb2, 800, 75, ikanb2.getWidth(), ikanb2.getHeight(), null);
-			g.drawImage(pir, 970, 75, pir.getWidth(), pir.getHeight(), null);
 			if(snail.getDirection() == Direction.RIGHT ) {
 				g.drawImage(snail0, (int)(snail.getX()*1366/100 - snail0.getWidth()/2), (int)(snail.getY()*650/100), snail0.getWidth(), snail0.getHeight(), null);
 			}else {
 				g.drawImage(snail1, (int)(snail.getX()*1366/100 - snail1.getWidth()/2), (int)(snail.getY()*650/100), snail1.getWidth(), snail1.getHeight(), null);
 			}
-			
-			if (Main.egg == 0) {
-				g.drawImage(eggos1, 1217, 87, eggos1.getWidth(), eggos1.getHeight(), null);
-			} else if (Main.egg == 1) {
-				g.drawImage(eggos2, 1217, 87, eggos1.getWidth(), eggos2.getHeight(), null);
-			} else {
-				g.drawImage(eggos3, 1217, 87, eggos1.getWidth(), eggos3.getHeight(), null);
-			}
-			
-			
 			int i = 0;
 			while (!ListCoin.isEmpty() && i < ListCoin.getIdx()) {
-				g.drawImage(coin, (int)(ListCoin.get(i).getX()*1366/100 - coin.getWidth()/2), (int)(ListCoin.get(i).getY()*768/100 - coin.getHeight()/2), coin.getWidth(), coin.getHeight(), null);
-				i++;
+				if(ListCoin.get(i).getValue() >= 1000) {
+					g.drawImage(diamond, (int)(ListCoin.get(i).getX()*1366/100 - diamond.getWidth()/2), (int)(ListCoin.get(i).getY()*768/100 - diamond.getHeight()/2), diamond.getWidth(), diamond.getHeight(), null);
+					i++;
+				}else {
+					g.drawImage(coin, (int)(ListCoin.get(i).getX()*1366/100 - coin.getWidth()/2), (int)(ListCoin.get(i).getY()*768/100 - coin.getHeight()/2), coin.getWidth(), coin.getHeight(), null);
+					i++;
+				}
 			}
-			
-			
 			i =0;
 			while (!ListFood.isEmpty() && i < ListFood.getIdx()) {
 				if(ListFood.get(i) != null) {
 					g.drawImage(foodie, (int)(ListFood.get(i).getX()*1366/100 - foodie.getWidth()/2), (int)(ListFood.get(i).getY()*768/100 - foodie.getHeight()/2), foodie.getWidth(), foodie.getHeight(), null);
 				}
 				i++;
-			}
-			
+			}	
 			i =0;
 			while (!ListGuppy.isEmpty() && i < ListGuppy.getIdx()) {
 				if (ListGuppy.get(i).getDirection() == Direction.RIGHT) {
@@ -269,20 +252,32 @@ public class Screen extends JPanel {
 			while (!ListPiranha.isEmpty() && i < ListPiranha.getIdx()) {
 				if (ListPiranha.get(i).getDirection() == Direction.RIGHT) {
 			        if(!ListPiranha.get(i).getIsFull()){
-			        	g.drawImage(PiranhaSickRight, (int)(ListPiranha.get(i).getX()*1366/100), (int)(ListPiranha.get(i).getY()*700/100), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
+			        	g.drawImage(PiranhaSickRight, (int)(ListPiranha.get(i).getX()*1366/100 - PiranhaSickRight.getWidth()/2), (int)(ListPiranha.get(i).getY()*768/100 - PiranhaSickRight.getHeight()/2), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
 			        }else{
-			        	g.drawImage(PiranhaRight, (int)(ListPiranha.get(i).getX()*1366/100), (int)(ListPiranha.get(i).getY()*700/100), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
+			        	g.drawImage(PiranhaRight, (int)(ListPiranha.get(i).getX()*1366/100 - PiranhaRight.getWidth()/2), (int)(ListPiranha.get(i).getY()*768/100 - PiranhaRight.getHeight()/2), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
 			        }
 				} else {
 					if(!ListPiranha.get(i).getIsFull()){
-						g.drawImage(PiranhaSickLeft, (int)(ListPiranha.get(i).getX()*1366/100), (int)(ListPiranha.get(i).getY()*700/100), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
+						g.drawImage(PiranhaSickLeft, (int)(ListPiranha.get(i).getX()*1366/100 - PiranhaSickLeft.getWidth()/2), (int)(ListPiranha.get(i).getY()*768/100 - PiranhaSickLeft.getHeight()/2), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
 			        }else{
-			        	g.drawImage(PiranhaLeft, (int)(ListPiranha.get(i).getX()*1366/100), (int)(ListPiranha.get(i).getY()*700/100), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
+			        	g.drawImage(PiranhaLeft, (int)(ListPiranha.get(i).getX()*1366/100 - PiranhaLeft.getWidth()/2), (int)(ListPiranha.get(i).getY()*768/100 - PiranhaLeft.getHeight()/2), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
 			        }
 				}
 				i++;
 			}
-			
+			g.drawImage(papan, 760, -25, papan.getWidth(), papan.getHeight(), null);
+			g.drawImage(papan, 960, -25, papan.getWidth(), papan.getHeight(), null);
+			g.drawImage(papan, 1160, -25, papan.getWidth(), papan.getHeight(), null);
+			g.drawImage(scroll, 0, 0, scroll.getWidth(), scroll.getHeight(), null);
+			g.drawImage(ikanb2, 800, 75, ikanb2.getWidth(), ikanb2.getHeight(), null);
+			g.drawImage(pir, 970, 75, pir.getWidth(), pir.getHeight(), null);
+			if (Main.egg == 0) {
+				g.drawImage(eggos1, 1217, 87, eggos1.getWidth(), eggos1.getHeight(), null);
+			} else if (Main.egg == 1) {
+				g.drawImage(eggos2, 1217, 87, eggos1.getWidth(), eggos2.getHeight(), null);
+			} else {
+				g.drawImage(eggos3, 1217, 87, eggos1.getWidth(), eggos3.getHeight(), null);
+			}
 			Graphics2D g2 = (Graphics2D)g;
 			Graphics2D g5 = (Graphics2D)g;
 			Graphics2D g6 = (Graphics2D)g;

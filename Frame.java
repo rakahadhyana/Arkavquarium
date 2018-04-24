@@ -72,8 +72,8 @@ public class Frame extends JFrame implements MouseListener, KeyListener{
 
 	public void mousePressed(MouseEvent e) {
     	inputMouse.add(1);
-    	System.out.println(e.getX());
-    	System.out.println(e.getY());
+//    	System.out.println(e.getX());
+//    	System.out.println(e.getY());
     	mouseX = e.getX();
     	mouseY = e.getY();
     }

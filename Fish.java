@@ -35,7 +35,7 @@ public abstract class Fish extends Entity {
 
     public void move() {
         if (Math.abs(getX() - getDestX()) < getRadius() && Math.abs(getY() - getDestY()) < getRadius()) {
-            setDest(Math.random() * Aquarium.getSize(), Math.random() * Aquarium.getSize());
+            setDest(Math.random() * 90, Math.random() * 90);
         }
         double a = Math.atan2(getDestY() - getY(), getDestX() - getX());
         if (getSpeed() * Math.cos(a) >= 0) {

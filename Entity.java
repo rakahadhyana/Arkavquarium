@@ -2,8 +2,8 @@ import java.util.Comparator;
 
 public abstract class Entity implements Comparator<Entity> {
     public Entity() {
-        this.x = Math.random() * Aquarium.getSize();
-        this.y = Math.random() * Aquarium.getSize();
+        this.x = Math.random() * 90;
+        this.y = Math.random() * 90;
         this.speed = 1;
     }
 

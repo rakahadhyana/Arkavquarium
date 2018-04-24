@@ -44,9 +44,18 @@ public class Main{
 					if ((f.getMouseX() < 490 && f.getMouseX() > 251) && (f.getMouseY() < 533 && f.getMouseY() > 395)) {
 						System.out.println("Masuk");
 						mainmenu = false;
-						Coins.money = 700;
+						Coins.money = 5000;
 						egg = 0;
 						eggPrice = 10000;
+						ListCoin = new LinkedList<Coins>();
+						ListFood = new LinkedList<Food>();
+						ListGuppy = new LinkedList<Guppy>();
+						ListPiranha = new LinkedList<Piranha>();
+						s.setListCoin(ListCoin);
+						s.setSnail(snail);
+						s.setListFood(ListFood);
+						s.setListGuppy(ListGuppy);
+						s.setListPiranha(ListPiranha);
 					}else if ((f.getMouseX() < 1160 && f.getMouseX() > 921) && (f.getMouseY() < 533 && f.getMouseY() > 395)) {
 						System.exit(0);
 					}
