@@ -1,3 +1,3 @@
 interface Interface {
-    void move();
+  void move();
 }

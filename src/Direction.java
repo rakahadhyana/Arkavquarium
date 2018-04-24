@@ -1,5 +1,5 @@
 /**
- * Direction to move
+ * Direction to move.
  * @author Funtastic4
  */
 public enum Direction {
