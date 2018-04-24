@@ -11,6 +11,9 @@ import javax.swing.JPanel;
 
 public class Screen extends JPanel {
 	
+	/**
+	 * Attributes/objects that want to be shown in the screen
+	 */
 	private static final long serialVersionUID = 1L;
 	private BufferedImage aquarium;
 	private BufferedImage mainMenu;
@@ -53,46 +56,83 @@ public class Screen extends JPanel {
 	private LinkedList<Food> ListFood = new LinkedList<Food>();
 	private int Money = 500;
 	
+	
+	/**
+	 * This method returns the current list of coins
+	 * @return List of coins
+	 */
 	public LinkedList<Coins> getListCoin() {
 		return ListCoin;
 	}
 
+	/**
+	 * This method sets this' list of coin to the input parameter
+	 * @param listCoin
+	 */
 	public void setListCoin(LinkedList<Coins> listCoin) {
 		ListCoin = listCoin;
 	}
 
+	/**
+	 * This method returns the current list of guppy 
+	 * @return List of guppy
+	 */
 	public LinkedList<Guppy> getListGuppy() {
 		return ListGuppy;
 	}
-
+	/**
+	 * This method sets this' list of guppy to the input parameter
+	 * @param listGuppy
+	 */
 	public void setListGuppy(LinkedList<Guppy> listGuppy) {
 		ListGuppy = listGuppy;
 	}
 
+	/**
+	 * This method returns the current list of piranha
+	 * @return List of piranha
+	 */
 	public LinkedList<Piranha> getListPiranha() {
 		return ListPiranha;
 	}
-
+	/**
+	 * This method sets this' list of piranha to the input parameter
+	 * @param listPiranha
+	 */
 	public void setListPiranha(LinkedList<Piranha> listPiranha) {
 		ListPiranha = listPiranha;
 	}
-
+	/**
+	 * This method returns the current list of food
+	 * @return List of food
+	 */
 	public LinkedList<Food> getListFood() {
 		return ListFood;
 	}
-
+	/**
+	 * This method sets this' list of food to the input parameter
+	 * @param listFood
+	 */
 	public void setListFood(LinkedList<Food> listFood) {
 		ListFood = listFood;
 	}
-
+	/**
+	 * This method returns this' snail object
+	 * @return snail
+	 */
 	public Snail getSnail() {
 		return snail;
 	}
-
+	/**
+	 * This method sets this' snail object to the input parameter
+	 * @param snail
+	 */
 	public void setSnail(Snail snail) {
 		this.snail = snail;
 	}
-
+	/**
+	 * This method initiates each attribute with the corresponding image
+	 */
 	public Screen() {
 		try {
 			aquarium = ImageIO.read(getClass().getResourceAsStream("image/aquarium1.jpg"));
@@ -132,6 +172,10 @@ public class Screen extends JPanel {
 		}
 	}
 	
+	
+	/**
+	 * This method displays all the images that have been initiated to the screen
+	 */
 	public void paint(Graphics g) {
 		g.drawImage(aquarium, 0, 0, this.getWidth(), this.getHeight(), null);
 		g.drawImage(papan, 760, -25, papan.getWidth(), papan.getHeight(), null);
@@ -237,5 +281,4 @@ public class Screen extends JPanel {
         g2.drawString("MONEY", 92, 61);
 		
 	}
-
 }
