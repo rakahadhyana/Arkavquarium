@@ -30,7 +30,7 @@ class Food extends Entity implements Interface {
 
     public void lifeCycle(LinkedList<Food> listFood) {
         move();
-        if (y > Aquarium.getBorder(2)) {
+        if (y > 95) {
             listFood.remove(this);
         }
     }

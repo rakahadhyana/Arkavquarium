@@ -4,7 +4,7 @@
  * @version 1.0
  */
 public class Coins extends Entity {
-    public static int money;
+    public static Integer money;
     private int value;
     /**
      * This constructs a coin with a specified (x,y) position 
@@ -31,7 +31,7 @@ public class Coins extends Entity {
      * the aquarium
      */
     public void move() {
-        if (y <= Aquarium.getBorder(2)) {
+        if (y <= 90) {
             y += 2;
         }
     }

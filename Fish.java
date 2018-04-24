@@ -7,7 +7,7 @@ public abstract class Fish extends Entity {
     public Fish() {
         super();
         setTime(0);
-        radius = Aquarium.getSize() * 4 / 100;
+        radius = Aquarium.getSize() * 2 / 100;
         setIsFull(true);
         setDest(Math.random() * Aquarium.getSize(), Math.random() * Aquarium.getSize());
         int dir = (int)(Math.random() * 2);
@@ -22,7 +22,7 @@ public abstract class Fish extends Entity {
     public Fish(double x, double y) {
         super(x, y);
         setTime(0);
-        radius = Aquarium.getSize() * 4 / 100;
+        radius = Aquarium.getSize() * 2 / 100;
         setIsFull(true);
         setDest(Math.random() * Aquarium.getSize(), Math.random() * Aquarium.getSize());
         int dir = (int)(Math.random() * 2);

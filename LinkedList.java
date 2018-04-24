@@ -44,18 +44,17 @@ public class LinkedList<T> extends List<T> {
     }
 
      public static void main(String args[]) {
-         LinkedList<Coins> linkedList = new LinkedList<Coins>();
-         Snail snail = new Snail();
-         Guppy guppy = new Guppy();
-         Guppy guppy2 = new Guppy();
-         Coins coin = new Coins(0,0,100);
-         linkedList.add(coin);
-         linkedList.add(coin);
+         LinkedList<Integer> linkedList = new LinkedList<Integer>();
+         linkedList.add(1);
+         linkedList.add(2);
+         linkedList.add(3);
+         linkedList.add(4);
+         linkedList.add(5);
+         linkedList.remove(5);
+         linkedList.add(2);
 //         linkedList.add(snail);
 //         linkedList.add(snail);
-         linkedList.remove(coin);
-         linkedList.remove(coin);
-         System.out.println(linkedList.getIdx());
+         System.out.println(linkedList.get(4));
      }
 
     public int find(T elmt) {
@@ -98,44 +97,22 @@ public class LinkedList<T> extends List<T> {
                 lastList.setElmt(null);
             } else if (idx == 0) {
                 firstList = firstList.getNext();
-            } else if (idx == getIdx() - 1) {
+            } else if (idx == (getIdx() - 1)) {
                 for (int i = 0; i < idx - 1; i++) {
                     temp = temp.getNext();
                 }
                 temp.setNext(null);
-                lastList.setNext(temp);
+                lastList = temp;
             } else {
                 for (int i = 0; i < idx - 1; i++) {
                     temp = temp.getNext();
                 }
                 temp.setNext((temp.getNext()).getNext());
             }
+        }else {
+        	
         }
     }
-//    public void remove(T element) {
-//    	int idx = find(element);
-//    	List<T> p = firstList;
-//    	if (element == firstList.getElmt()) {
-//    		firstList = p.getNext();
-//    		p = null;
-//    	} else if (element == lastList.getElmt()) {
-//    		for(int i = 0; i < idx - 1; ++i) {
-//    			p = p.getNext();
-//    		}
-//    		p.setNext(null);
-//    		lastList = p;
-//    	} else if (firstList == lastList) {
-//    		p = null;
-//    		firstList = null;
-//    		lastList = null;
-//    	} else {
-//    		for (int i = 0; i < idx - 1; ++i) {
-//    			p = p.getNext();
-//    		}
-//    		p.setNext(null);
-//    		p.setNext(p.getNext().getNext());
-//    	}
-//    }
 
     public T get(int idx) {
         List<T> temp = firstList;

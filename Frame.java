@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.awt.event.MouseEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
+
+
 /**
  * This class implements the frame of the game. It inherits JFrame class, interface MouseListener
  * and interface KeyListener
@@ -17,6 +19,9 @@ public class Frame extends JFrame implements MouseListener, KeyListener{
 	private ArrayList<Integer> inputMouse = new ArrayList<Integer>();
 	private int mouseX;
 	private int mouseY;
+	private char keyChar;
+
+
 
 	/**
 	 * This constructs a frame and set the size of the frame to 1366x768
@@ -66,7 +71,11 @@ public class Frame extends JFrame implements MouseListener, KeyListener{
 	}
 
 	public void mousePressed(MouseEvent e) {
-//		System.out.println("pressed");
+    	inputMouse.add(1);
+    	System.out.println(e.getX());
+    	System.out.println(e.getY());
+    	mouseX = e.getX();
+    	mouseY = e.getY();
     }
     
     public void mouseReleased(MouseEvent e) {
@@ -82,17 +91,14 @@ public class Frame extends JFrame implements MouseListener, KeyListener{
     }
     
     public void mouseClicked(MouseEvent e) {
-    	inputMouse.add(1);
-    	mouseX = e.getX();
-    	mouseY = e.getY();
-    	System.out.println(mouseX);
-    	System.out.println(mouseY);
+
     }
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		inputKey.add(1);
+		keyChar = e.getKeyChar();
 	}
 
 	public ArrayList<Integer> getInputKey() {
@@ -114,6 +120,10 @@ public class Frame extends JFrame implements MouseListener, KeyListener{
 		System.out.println(e.getKeyChar());
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public char getKeyChar() {
+		return keyChar;
 	}
     
     

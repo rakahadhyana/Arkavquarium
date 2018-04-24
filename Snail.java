@@ -9,13 +9,8 @@ public class Snail extends Entity {
 	 * 
 	 */
 	public Snail() {
-        super(0, 100);
-        int dir = (int)(Math.random() * 2);
-        if (dir == 0) {
-            setDirection(Direction.RIGHT);
-        } else {
-            setDirection(Direction.LEFT);
-        }
+        super(50, 100);
+        setDirection(Direction.RIGHT);
     }
 	
 	/**
@@ -32,10 +27,10 @@ public class Snail extends Entity {
      * @param C
      */
     public void moveToCoins(Coins C) {
-        if (x < C.getX()) {
+        if (x < Math.round(C.getX())) {
             setDirection(Direction.RIGHT);
             x += getSpeed();
-        } else if (x > C.getX()) {
+        } else if (x > Math.round(C.getX())) {
             setDirection(Direction.LEFT);
             x -= getSpeed();
         }
@@ -52,14 +47,13 @@ public class Snail extends Entity {
             idx++;
 
             while (idx < listCoins.getIdx()) {
-            	System.out.println("index Coin : " +  idx);
                     if (distanceTo(closeCoins) > distanceTo(listCoins.get(idx))) {
                         closeCoins = listCoins.get(idx);
                     }
                 idx++;
             }
             moveToCoins(closeCoins);
-            if (Math.round(x) == (long) closeCoins.getX() && y - 10 <= closeCoins.getY()) {
+            if (Math.round(x) == Math.round(closeCoins.getX()) && y - 10 <= closeCoins.getY()) {
                 Coins.money += closeCoins.getValue();
                 listCoins.remove(closeCoins);
             }
@@ -70,5 +64,9 @@ public class Snail extends Entity {
         this.direction = direction;
     }
 
+    public Direction getDirection() {
+    	return direction;
+    }
+    
     private Direction direction;
 }

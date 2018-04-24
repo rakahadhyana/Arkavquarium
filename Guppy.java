@@ -54,7 +54,6 @@ class Guppy extends Fish {
     		Food closeFood = listFood.get(idx);
     		idx++;
     		while (idx < listFood.getIdx()) {
-    			System.out.println("index food : " + idx);
     			if (distanceTo(closeFood) > distanceTo(listFood.get(idx))) {
     				closeFood = listFood.get(idx);
     			}
@@ -66,7 +65,7 @@ class Guppy extends Fish {
                 setTime(0);
                 setFoodCounter(getFoodCounter() + 1);
     			listFood.remove(closeFood);
-                setSpeed(getSpeed() - 1);
+    	        setSpeed(1);
     		}
     	} else {
             move();

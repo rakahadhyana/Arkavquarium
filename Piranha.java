@@ -45,7 +45,7 @@ public class Piranha extends Fish {
                 setTime(0);
                 makeCoins(listCoins, closeGuppy);
                 listGuppy.remove(closeGuppy);
-                setSpeed(getSpeed() - 1);
+                setSpeed(2);
             }
         } else {
             move();
