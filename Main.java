@@ -37,9 +37,11 @@ public class Main{
 					if ((f.getMouseX() < 490 && f.getMouseX() > 251) && (f.getMouseY() < 533 && f.getMouseY() > 395)) {
 						System.out.println("Masuk");
 						mainmenu = false;
-						Coins.money = 50000;
+						Coins.money = 200;
 						egg = 0;
 						eggPrice = 10000;
+					}else if ((f.getMouseX() < 1160 && f.getMouseX() > 921) && (f.getMouseY() < 533 && f.getMouseY() > 395)) {
+						System.exit(0);
 					}
 				}
 				f.getInputMouse().clear();
@@ -47,10 +49,50 @@ public class Main{
 				Thread.sleep(100);
 			}
 			while(lose) {
-				
+				if ((f.getMouseX() < 1173 && f.getMouseX() > 964) && (f.getMouseY() < 568 && f.getMouseY() > 470)) {
+					System.exit(0);
+				} else if ((f.getMouseX() < 520 && f.getMouseX() > 118) && (f.getMouseY() < 568 && f.getMouseY() > 470)) {
+					Coins.money = 50000;
+					egg = 0;
+					eggPrice = 10000;
+					lose = false;
+					ListCoin = new LinkedList<Coins>();
+					ListFood = new LinkedList<Food>();
+					ListGuppy = new LinkedList<Guppy>();
+					ListPiranha = new LinkedList<Piranha>();
+					s.setListCoin(ListCoin);
+					s.setSnail(snail);
+					s.setListFood(ListFood);
+					s.setListGuppy(ListGuppy);
+					s.setListPiranha(ListPiranha);
+				}
+				f.getInputMouse().clear();
+				s.repaint();
+				Thread.sleep(100);
 			}
 			while(win) {
-				
+				if(f.getInputMouse().size() != 0) {
+					if ((f.getMouseX() < 1178 && f.getMouseX() > 965) && (f.getMouseY() < 557 && f.getMouseY() > 458)) {
+						System.exit(0);
+					}else if ((f.getMouseX() < 567 && f.getMouseX() > 174) && (f.getMouseY() < 557 && f.getMouseY() > 458)) {
+						Coins.money = 50000;
+						egg = 0;
+						eggPrice += 10000;
+						win = false;
+						ListCoin = new LinkedList<Coins>();
+						ListFood = new LinkedList<Food>();
+						ListGuppy = new LinkedList<Guppy>();
+						ListPiranha = new LinkedList<Piranha>();
+						s.setListCoin(ListCoin);
+						s.setSnail(snail);
+						s.setListFood(ListFood);
+						s.setListGuppy(ListGuppy);
+						s.setListPiranha(ListPiranha);
+					}
+				}
+				f.getInputMouse().clear();
+				s.repaint();
+				Thread.sleep(100);
 			}
 			int j = 0;
 			if(f.getInputKey().size() != 0) {
