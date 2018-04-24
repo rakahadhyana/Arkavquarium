@@ -58,6 +58,15 @@ public class Main{
 						s.setListPiranha(ListPiranha);
 					}else if ((f.getMouseX() < 1160 && f.getMouseX() > 921) && (f.getMouseY() < 533 && f.getMouseY() > 395)) {
 						System.exit(0);
+					} else if ((f.getMouseX() < 841 && f.getMouseX() > 579) && (f.getMouseY() < 561 && f.getMouseY() > 419)) {
+						ReadWrite RW = new ReadWrite();
+
+						RW.readStateGuppy(ListGuppy, "guppyState.txt");
+						RW.readStateCoins(ListCoin, "coinsState.txt");
+						RW.readStateFood(ListFood, "foodState.txt");
+						RW.readStatePiranha(ListPiranha, "piranhaState.txt");
+						Coins.money = RW.readStateMoney("moneyState.txt");
+						mainmenu = false;
 					}
 				}
 				f.getInputMouse().clear();
@@ -118,6 +127,13 @@ public class Main{
 				}else
 				if(f.getKeyChar() == 'x') {
 					mainmenu = true;
+				} else if (f.getKeyChar() == 's') {
+					ReadWrite RW = new ReadWrite();
+					RW.writeStateGuppy(ListGuppy, "guppyState.txt");
+					RW.writeStateCoins(ListCoin, "coinsState.txt");
+					RW.writeStateFood(ListFood, "foodState.txt");
+					RW.writeStatePiranha(ListPiranha, "piranhaState.txt");
+					RW.writeStateMoney(Coins.money, "moneyState.txt");
 				}
 				f.getInputKey().clear();
 			}
