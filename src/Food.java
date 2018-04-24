@@ -7,8 +7,8 @@
 class Food extends Entity {
   /**
   * This constructs a food with a specified (x,y) position.
-  * @param x the x position of entity object
-  * @param y the y position of entity object
+  * @param x the food's axis
+  * @param y the food's ordinate
   */
   public Food(double x, double y) {
     super(x, y);
