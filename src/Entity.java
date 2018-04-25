@@ -1,5 +1,10 @@
 import java.util.Comparator;
 
+/**
+ * This class implements the entity in the game.
+ * @author Funtastic4
+ * @version 1.0
+ */
 public abstract class Entity implements Comparator<Entity>, Interface {
     /**
      * This Construct abstract object entity with random position.
@@ -38,26 +43,50 @@ public abstract class Entity implements Comparator<Entity>, Interface {
         return false;
     }
 
+    /**
+     * This sets the Entity's axis.
+     * @param abscissa the entity's axis
+     */
     public void setX(double abscissa) {
         this.abscissa = abscissa;
     }
 
+    /**
+     * This sets the Entity's ordinate.
+     * @param ordinate the entity's ordinate
+     */
     public void setY(double ordinate) {
         this.ordinate = ordinate;
     }
 
+    /**
+     * This sets the Entity's speed.
+     * @param speed the entity's speed
+     */
     public void setSpeed(double speed) {
         this.speed = speed;
     }
 
+    /**
+     * This returns this' axis.
+     * @return this' axis
+     */
     public double getX() {
         return this.abscissa;
     }
 
+    /**
+     * This returns this' ordinate.
+     * @return this' ordinate
+     */
     public double getY() {
         return this.ordinate;
     }
 
+    /**
+     * This returns this' speed.
+     * @return this' speed
+     */
     public double getSpeed() {
         return this.speed;
     }
