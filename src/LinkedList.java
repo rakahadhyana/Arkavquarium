@@ -1,121 +1,132 @@
-/**
- * This class is used for listing all type of same object.
- * @author Funtastic4
- * @version 1.0
- */
+class List<T> {
+    private T elmt;
+    private List<T> next;
+
+    public List() {
+        this.elmt = null;
+        this.next = null;
+    }
+
+    public List(T elmt) {
+        this.elmt = elmt;
+        this.next = null;
+    }
+
+    public List(List<T> elmt) {
+        this.elmt = elmt.getElmt();
+        this.next = elmt.getNext();
+    }
+
+    public void setElmt(T elmt) {
+        this.elmt = elmt;
+    }
+
+    public void setNext(List<T> elmt) {
+        this.next = elmt;
+    }
+
+    public T getElmt() {
+        return this.elmt;
+    }
+
+    public List<T> getNext() {
+        return this.next;
+    }
+}
+
 public class LinkedList<T> extends List<T> {
-  private List<T> firstList;
-  private List<T> lastList;
+    private List<T> firstList;
+    private List<T> lastList;
 
-  /**
-   * Default LinkedList ctor
-   */
-  public LinkedList() {
-    firstList = new List<T>();
-    lastList = new List<T>();
-  }
+    public LinkedList() {
+        firstList = new List<T>();
+        lastList = new List<T>();
+    }
 
-  /**
-   * Function to find the index of elmt in linked list.
-   * @param elmt : searched element
-   * @return elmt index on linked list, -1 if not found
-   */
-  public int find(T elmt) {
-    int idx = 0;
+     public static void main(String args[]) {
+         LinkedList<Integer> linkedList = new LinkedList<Integer>();
+         linkedList.add(1);
+         linkedList.add(2);
+         linkedList.add(3);
+         linkedList.add(4);
+         linkedList.add(5);
+         linkedList.remove(5);
+         linkedList.add(2);
+//         linkedList.add(snail);
+//         linkedList.add(snail);
+         System.out.println(linkedList.get(4));
+     }
 
-    List<T> temp = firstList;
+    public int find(T elmt) {
+        int idx = 0;
+        List<T> temp = firstList;
 
-    if (!isEmpty()) {
-      do {
-        if (temp.getElmt().equals(elmt)) {
-          return idx;
+        if (!isEmpty()) {
+            do {
+                if (temp.getElmt().equals(elmt)) {
+                    return idx;
+                }
+                temp = temp.getNext();
+                idx++;
+            } while (temp != null);
         }
-        temp = temp.getNext();
-        idx++;
-      } while (temp != null);
+
+        return -1;
     }
 
-    return -1;
-  }
-
-  /**
-   * Function to know whether linked list is empty or no.
-   * @return true if linked list is empty
-   */
-  public boolean isEmpty() {
-    return (firstList.getElmt() == null);
-  }
-
-  /**
-   * Procedure to add element to linked list.
-   * @param elmt : added element
-   */
-  public void add(T elmt) {
-    if (isEmpty()) {
-      firstList.setElmt(elmt);
-      lastList = firstList;
-    } else {
-      lastList.setNext(new List<T>(elmt));
-      lastList = lastList.getNext();
+    public boolean isEmpty() {
+        return (firstList.getElmt() == null);
     }
-  }
 
-  /**
-   * Procedure to remove element from linked list.
-   * @param elmt : desire removed element
-   */
-  public void remove(T elmt) {
-    int idx = find(elmt);
-
-    List<T> temp = firstList;
-    if (idx != -1) {
-      if (getIdx() == 1) {
-        firstList.setElmt(null);
-        lastList.setElmt(null);
-      } else if (idx == 0) {
-        firstList = firstList.getNext();
-      } else if (idx == (getIdx() - 1)) {
-        for (int i = 0; i < idx - 1; i++) {
-          temp = temp.getNext();
+    public void add(T elmt) {
+        if (isEmpty()) {
+            firstList.setElmt(elmt);
+            lastList = firstList;
+        } else {
+            lastList.setNext(new List<T>(elmt));
+            lastList = lastList.getNext();
         }
-        temp.setNext(null);
-        lastList = temp;
-      } else {
-        for (int i = 0; i < idx - 1; i++) {
-          temp = temp.getNext();
+    }
+
+    public void remove(T elmt) {
+        int idx = find(elmt);
+        List<T> temp = firstList;
+        if (idx != -1) {
+            if (getIdx() == 1) {
+                firstList.setElmt(null);
+                lastList.setElmt(null);
+            } else if (idx == 0) {
+                firstList = firstList.getNext();
+            } else if (idx == (getIdx() - 1)) {
+                for (int i = 0; i < idx - 1; i++) {
+                    temp = temp.getNext();
+                }
+                temp.setNext(null);
+                lastList = temp;
+            } else {
+                for (int i = 0; i < idx - 1; i++) {
+                    temp = temp.getNext();
+                }
+                temp.setNext((temp.getNext()).getNext());
+            }
         }
-        temp.setNext((temp.getNext()).getNext());
-      }
-    }
-  }
-
-  /**
-   * Function to get element from expected index.
-   * @param idx : index of element
-   * @return element from expected index
-   */
-  public T get(int idx) {
-    List<T> temp = firstList;
-    for (int i = 0; i < idx; i++) {
-      temp = temp.getNext();
     }
 
-    return temp.getElmt();
-  }
-
-  /**
-   * Function to count the number of elements.
-   * @return number of elements
-   */
-  public int getIdx() {
-    int idx = 0;
-    List<T> p = firstList;
-
-    while (p != null) {
-      idx++;
-      p = p.getNext();
+    public T get(int idx) {
+        List<T> temp = firstList;
+        for (int i = 0; i < idx; i++) {
+            temp = temp.getNext();
+        }
+        return temp.getElmt();
     }
 
-    return idx;
-  }
+    public int getIdx() {
+    	List<T> p = firstList;
+        int idx = 0;
+        while(p != null){
+            idx++;
+            p = p.getNext();
+        }
+        return idx;
+    }
 }

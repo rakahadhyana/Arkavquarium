@@ -34,10 +34,10 @@ public class Screen extends JPanel {
   private BufferedImage ikanlaperflip;
   private BufferedImage ikanlaper1flip;
   private BufferedImage ikanlaper2flip;
-  private BufferedImage PiranhaLeft;
-  private BufferedImage PiranhaRight;
-  private BufferedImage PiranhaSickLeft;
-  private BufferedImage PiranhaSickRight;
+  private BufferedImage piranhaLeft;
+  private BufferedImage piranhaRight;
+  private BufferedImage piranhaSickLeft;
+  private BufferedImage piranhaSickRight;
   private BufferedImage pir;
   private BufferedImage snail0;
   private BufferedImage snail1;
@@ -72,10 +72,10 @@ public class Screen extends JPanel {
       ikanlaperflip = ImageIO.read(getClass().getResourceAsStream("image/ikanlaperflip.png"));
       ikanlaper1flip = ImageIO.read(getClass().getResourceAsStream("image/ikanlaper1flip.png"));
       ikanlaper2flip = ImageIO.read(getClass().getResourceAsStream("image/ikanlaper2flip.png"));
-      PiranhaLeft = ImageIO.read(getClass().getResourceAsStream("image/PiranhaLeft.png"));
-      PiranhaRight = ImageIO.read(getClass().getResourceAsStream("image/PiranhaRight.png"));
-      PiranhaSickLeft = ImageIO.read(getClass().getResourceAsStream("image/PiranhaSickLeft.png"));
-      PiranhaSickRight = ImageIO.read(getClass().getResourceAsStream("image/PiranhaSickRight.png"));
+      piranhaLeft = ImageIO.read(getClass().getResourceAsStream("image/PiranhaLeft.png"));
+      piranhaRight = ImageIO.read(getClass().getResourceAsStream("image/PiranhaRight.png"));
+      piranhaSickLeft = ImageIO.read(getClass().getResourceAsStream("image/PiranhaSickLeft.png"));
+      piranhaSickRight = ImageIO.read(getClass().getResourceAsStream("image/PiranhaSickRight.png"));
       pir = ImageIO.read(getClass().getResourceAsStream("image/pir.png"));
       snail0 = ImageIO.read(getClass().getResourceAsStream("image/snail0.png"));
       snail1 = ImageIO.read(getClass().getResourceAsStream("image/snail1.png"));
@@ -195,74 +195,76 @@ public class Screen extends JPanel {
       while (!Main.ListPiranha.isEmpty() && i < Main.ListPiranha.getIdx()) {
         if (Main.ListPiranha.get(i).getDirection() == Direction.RIGHT) {
           if (!Main.ListPiranha.get(i).getIsFull()) {
-            g.drawImage(PiranhaSickRight, (int)(Main.ListPiranha.get(i).getX() * 1366 / 100 
-                - PiranhaSickRight.getWidth() / 2), (int)(Main.ListPiranha.get(i).getY() * 768 / 100
-                - PiranhaSickRight.getHeight() / 2), PiranhaRight.getWidth(), 
-                PiranhaRight.getHeight(), null);
+            g.drawImage(piranhaSickRight, (int)(Main.ListPiranha.get(i).getX() * 1366 / 100 
+                - piranhaSickRight.getWidth() / 2), (int)(Main.ListPiranha.get(i).getY() * 768 / 100
+                - piranhaSickRight.getHeight() / 2), piranhaRight.getWidth(), 
+                piranhaRight.getHeight(), null);
           } else {
-            g.drawImage(PiranhaRight, (int)(Main.ListPiranha.get(i).getX() * 1366 / 100 
-                - PiranhaRight.getWidth() / 2), (int)(Main.ListPiranha.get(i).getY() * 768 / 100
-                - PiranhaRight.getHeight() / 2), PiranhaRight.getWidth(), 
-                PiranhaRight.getHeight(), null);
+            g.drawImage(piranhaRight, (int)(Main.ListPiranha.get(i).getX() * 1366 / 100 
+                - piranhaRight.getWidth() / 2), (int)(Main.ListPiranha.get(i).getY() * 768 / 100
+                - piranhaRight.getHeight() / 2), piranhaRight.getWidth(), 
+                piranhaRight.getHeight(), null);
           }
         } else {
           if (!Main.ListPiranha.get(i).getIsFull()) {
-            g.drawImage(PiranhaSickLeft, (int)(Main.ListPiranha.get(i).getX() * 1366 / 100
-                - PiranhaSickLeft.getWidth() / 2), (int)(Main.ListPiranha.get(i).getY() * 768 / 100
-                - PiranhaSickLeft.getHeight() / 2), PiranhaRight.getWidth(), 
-                PiranhaRight.getHeight(), null);
+            g.drawImage(piranhaSickLeft, (int)(Main.ListPiranha.get(i).getX() * 1366 / 100
+                - piranhaSickLeft.getWidth() / 2), (int)(Main.ListPiranha.get(i).getY() * 768 / 100
+                - piranhaSickLeft.getHeight() / 2), piranhaRight.getWidth(), 
+                piranhaRight.getHeight(), null);
           } else {
-            g.drawImage(PiranhaLeft, (int)(Main.ListPiranha.get(i).getX()*1366/100 - PiranhaLeft.getWidth()/2), (int)(Main.ListPiranha.get(i).getY()*768/100 - PiranhaLeft.getHeight()/2), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
-			        }
-				}
-				i++;
-			}
-			g.drawImage(papan, 760, -25, papan.getWidth(), papan.getHeight(), null);
-			g.drawImage(papan, 960, -25, papan.getWidth(), papan.getHeight(), null);
-			g.drawImage(papan, 1160, -25, papan.getWidth(), papan.getHeight(), null);
-			g.drawImage(scroll, 0, 0, scroll.getWidth(), scroll.getHeight(), null);
-			g.drawImage(ikanb2, 800, 75, ikanb2.getWidth(), ikanb2.getHeight(), null);
-			g.drawImage(pir, 970, 75, pir.getWidth(), pir.getHeight(), null);
-			if (Main.egg == 0) {
-				g.drawImage(eggos1, 1217, 87, eggos1.getWidth(), eggos1.getHeight(), null);
-			} else if (Main.egg == 1) {
-				g.drawImage(eggos2, 1217, 87, eggos1.getWidth(), eggos2.getHeight(), null);
-			} else {
-				g.drawImage(eggos3, 1217, 87, eggos1.getWidth(), eggos3.getHeight(), null);
-			}
-			Graphics2D g2 = (Graphics2D)g;
-			Graphics2D g5 = (Graphics2D)g;
-			Graphics2D g6 = (Graphics2D)g;
-			g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-	        g5.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-	        g6.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-	        Font fontmoney = new Font("Monospaced", Font.BOLD, 38);
-	        Font fontmoneyred = new Font("Monospaced", Font.BOLD, 38);
-	        Font fontpiranha = new Font("Monospaced", Font.BOLD, 20);
-	        Font fontguppy = new Font("Monospaced", Font.BOLD, 20);
-	        Font fonteggos = new Font("Monospaced", Font.BOLD, 20);
-	        Font fontpressX = new Font("Plain", Font.BOLD, 14);
-	        g2.setFont(fontmoney);
-	        g6.setFont(fontmoneyred);
-	        if(Main.moneyLess) {
-	        	g6.setColor(Color.RED);
-	        	g6.drawString("MONEY", 110, 61);
-		        g6.drawString(Coins.money.toString(), 120, 100);
-	        	Main.moneyLess = false;
-	        	g6.setColor(Color.BLACK);
-	        }else {
-		        g2.drawString("MONEY", 110, 61);
-		        g2.drawString(Coins.money.toString(), 120, 100);
-	        }
-	        g2.setFont(fontpiranha);
-	        g2.drawString("1000", 1024, 170);
-	        g2.setFont(fontguppy);
-	        g2.drawString("500", 833, 170);
-	        g2.setFont(fonteggos);
-	        g2.drawString(Main.eggPrice.toString(), 1221, 170);
-	        g5.setFont(fontpressX);
-	        g5.drawString("Press X to exit", 107, 124);
-
-		}
-	}
+            g.drawImage(piranhaLeft, (int)(Main.ListPiranha.get(i).getX() * 1366 / 100
+                - piranhaLeft.getWidth() / 2), (int)(Main.ListPiranha.get(i).getY() * 768 / 100 
+                - piranhaLeft.getHeight() / 2), piranhaRight.getWidth(), 
+                piranhaRight.getHeight(), null);
+          }
+        }
+        i++;
+      }
+      g.drawImage(papan, 760, -25, papan.getWidth(), papan.getHeight(), null);
+      g.drawImage(papan, 960, -25, papan.getWidth(), papan.getHeight(), null);
+      g.drawImage(papan, 1160, -25, papan.getWidth(), papan.getHeight(), null);
+      g.drawImage(scroll, 0, 0, scroll.getWidth(), scroll.getHeight(), null);
+      g.drawImage(ikanb2, 800, 75, ikanb2.getWidth(), ikanb2.getHeight(), null);
+      g.drawImage(pir, 970, 75, pir.getWidth(), pir.getHeight(), null);
+      if (Main.egg == 0) {
+        g.drawImage(eggos1, 1217, 87, eggos1.getWidth(), eggos1.getHeight(), null);
+      } else if (Main.egg == 1) {
+        g.drawImage(eggos2, 1217, 87, eggos1.getWidth(), eggos2.getHeight(), null);
+      } else {
+        g.drawImage(eggos3, 1217, 87, eggos1.getWidth(), eggos3.getHeight(), null);
+      }
+      Graphics2D g2 = (Graphics2D)g;
+      Graphics2D g5 = (Graphics2D)g;
+      Graphics2D g6 = (Graphics2D)g;
+      g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+      g5.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+      g6.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+      Font fontmoney = new Font("Monospaced", Font.BOLD, 38);
+      Font fontmoneyred = new Font("Monospaced", Font.BOLD, 38);
+      g2.setFont(fontmoney);
+      g6.setFont(fontmoneyred);
+      if (Main.moneyLess) {
+        g6.setColor(Color.RED);
+        g6.drawString("MONEY", 110, 61);
+        g6.drawString(Coins.money.toString(), 120, 100);
+        Main.moneyLess = false;
+        g6.setColor(Color.BLACK);
+      } else {
+        g2.drawString("MONEY", 110, 61);
+        g2.drawString(Coins.money.toString(), 120, 100);
+      }
+      Font fontpiranha = new Font("Monospaced", Font.BOLD, 20);
+      g2.setFont(fontpiranha);
+      g2.drawString("1000", 1024, 170);
+      Font fontguppy = new Font("Monospaced", Font.BOLD, 20);
+      g2.setFont(fontguppy);
+      g2.drawString("500", 833, 170);
+      Font fonteggos = new Font("Monospaced", Font.BOLD, 20);
+      g2.setFont(fonteggos);
+      g2.drawString(Main.eggPrice.toString(), 1221, 170);
+      Font fontpressX = new Font("Plain", Font.BOLD, 14);
+      g5.setFont(fontpressX);
+      g5.drawString("Press X to exit", 107, 124);
+    }
+  }
 }
