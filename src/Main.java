@@ -46,6 +46,8 @@ public class Main {
             ListFood = new LinkedList<Food>();
             ListGuppy = new LinkedList<Guppy>();
             ListPiranha = new LinkedList<Piranha>();
+            Guppy guppy = new Guppy();
+            ListGuppy.add(guppy);
           } else if ((f.getMouseX() < 1160 && f.getMouseX() > 921) 
               && (f.getMouseY() < 533 && f.getMouseY() > 395)) {
             System.exit(0);
@@ -84,6 +86,8 @@ public class Main {
           ListFood = new LinkedList<Food>();
           ListGuppy = new LinkedList<Guppy>();
           ListPiranha = new LinkedList<Piranha>();
+          Guppy guppy = new Guppy();
+          ListGuppy.add(guppy);
         }
         f.getInputMouse().clear();
         s.repaint();
@@ -203,7 +207,7 @@ public class Main {
         j++;
       }
       snail.lifeCycle(ListCoin);
-      if (ListGuppy.isEmpty() && ListPiranha.isEmpty() && ListCoin.isEmpty() && Coins.money < 200) {
+      if (ListGuppy.isEmpty() && ListPiranha.isEmpty() && ListCoin.isEmpty() && Coins.money < 500) {
         lose = true;
       }
       if (egg == 3) {

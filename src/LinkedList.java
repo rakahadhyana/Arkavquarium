@@ -8,7 +8,7 @@ public class LinkedList<T> extends List<T> {
   private List<T> lastList;
 
   /**
-   * Default LinkedList ctor
+   * Default LinkedList ctor.
    */
   public LinkedList() {
     firstList = new List<T>();

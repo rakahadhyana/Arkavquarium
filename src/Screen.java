@@ -104,7 +104,7 @@ public class Screen extends JPanel {
     } else {
       g.drawImage(aquarium, 0, 0, this.getWidth(), this.getHeight(), null);
       int snaily = (int)(Main.snail.getX() * (1366 / 100) - snail0.getWidth() / 2);
-      int snaily2 = (int)(Main.snail.getY() * (650 / 100));
+      int snaily2 = (int)(Main.snail.getY() * (768 / 100) - snail0.getHeight() / 2);
       if (Main.snail.getDirection() == Direction.RIGHT) {
         g.drawImage(snail0, snaily, snaily2, snail0.getWidth(), snail0.getHeight(), null);
       } else {
