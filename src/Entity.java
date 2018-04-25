@@ -1,68 +1,116 @@
+// TODO: Auto-generated Javadoc
+/**
+ * This class implements coins and inherit Entity class.
+ * @author Funtastic4
+ * @version 1.0
+ */
+
 import java.util.Comparator;
 
 public abstract class Entity implements Comparator<Entity>, Interface {
-  /**
-   * This Construct abstract object entity with random position.
-   */
-  public Entity() {
-    this.x = Math.random() * Aquarium.getSize();
-    this.y = Math.random() * Aquarium.getSize();
-    this.speed = 1;
-  }
-
-  /**
-   * This Construct abstract object entity with specified position.
-   * @param x entity's axis
-   * @param y entity's ordinate
-   */
-  public Entity(double x, double y) {
-    this.x = x;
-    this.y = y;
-    this.speed = 1;
-  }
-
-  @Override
-  public abstract void move();
-
-  @Override
-  public int compare(Entity e1, Entity e2) {
-    return 0;
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (obj instanceof Entity) {
-      Entity newE = (Entity)obj;
-      return (x == newE.getX() && y == newE.getY());
+    /**
+     * This constructs an entity with a random (abscissa,ordinat) position.
+     * and specified speed
+     */
+    public Entity() {
+        this.abscissa = Math.random() * Aquarium.getSize();
+        this.ordinat = Math.random() * Aquarium.getSize();
+        this.speed = 1;
     }
-    return false;
-  }
 
-  public void setX(double x) {
-    this.x = x;
-  }
+    /**
+     * This constructs a coin with a specified (abscissa,y) position.
+     * and value
+     * @param abscissa coin's axis
+     * @param ordinat coin's ordinate
+     * @param value coin's value
+     */
+    public Entity(double abscissa, double ordinat) {
+        this.abscissa = abscissa;
+        this.ordinat = ordinat;
+        this.speed = 1;
+    }
 
-  public void setY(double y) {
-    this.y = y;
-  }
+    /**
+     * Entity move procedure.
+     */
+    @Override
+    public abstract void move();
 
-  public void setSpeed(double speed) {
-    this.speed = speed;
-  }
+    /**
+     * Entity compare procedure.
+     * @param e1 first Entity to compare
+     * @param e2 second Entity to compare
+     * @return 0
+     */
+    @Override
+    public int compare(Entity e1, Entity e2) {
+        return 0;
+    }
 
-  public double getX() {
-    return this.x;
-  }
+    /**
+     *
+     * @param Object to equal
+     * @return boolean
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Entity) {
+            Entity newE = (Entity)obj;
+            return (abscissa == newE.getX() && ordinat == newE.getY());
+        }
+        return false;
+    }
 
-  public double getY() {
-    return this.y;
-  }
+    /**
+     * set Entity's abscissa value procedure
+     * @param new abscissa value
+     */
+    public void setX(double abscissa) {
+        this.abscissa = abscissa;
+    }
 
-  public double getSpeed() {
-    return this.speed;
-  }
+    /**
+     * set Entity's ordinat value procedure
+     * @param new ordinat value
+     */
+    public void setY(double ordinat) {
+        this.ordinat = ordinat;
+    }
 
-  protected double x;
-  protected double y;
-  protected double speed;
+    /**
+     * set Entity's speed value procedure
+     * @param new speed value
+     */
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
+    /**
+     * get Entity's abscissa function
+     * @return abscissa value
+     */
+    public double getX() {
+        return this.abscissa;
+    }
+
+    /**
+     * get Entity's ordinat function
+     * @return ordinat value
+     */
+    public double getY() {
+        return this.ordinat;
+    }
+
+    /**
+     * get Entity's speed function
+     * @return speed value
+     */
+    public double getSpeed() {
+        return this.speed;
+    }
+
+    protected double abscissa;
+    protected double ordinat;
+    protected double speed;
 }
