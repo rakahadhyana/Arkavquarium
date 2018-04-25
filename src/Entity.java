@@ -9,12 +9,12 @@ import java.util.Comparator;
 
 public abstract class Entity implements Comparator<Entity>, Interface {
     /**
-     * This constructs an entity with a random (abscissa,ordinat) position.
+     * This constructs an entity with a random (abscissa,ordinate) position.
      * and specified speed
      */
     public Entity() {
         this.abscissa = Math.random() * Aquarium.getSize();
-        this.ordinat = Math.random() * Aquarium.getSize();
+        this.ordinate = Math.random() * Aquarium.getSize();
         this.speed = 1;
     }
 
@@ -22,12 +22,12 @@ public abstract class Entity implements Comparator<Entity>, Interface {
      * This constructs a coin with a specified (abscissa,y) position.
      * and value
      * @param abscissa coin's axis
-     * @param ordinat coin's ordinate
+     * @param ordinate coin's ordinate
      * @param value coin's value
      */
-    public Entity(double abscissa, double ordinat) {
+    public Entity(double abscissa, double ordinate) {
         this.abscissa = abscissa;
-        this.ordinat = ordinat;
+        this.ordinate = ordinate;
         this.speed = 1;
     }
 
@@ -57,7 +57,7 @@ public abstract class Entity implements Comparator<Entity>, Interface {
     public boolean equals(Object obj) {
         if (obj instanceof Entity) {
             Entity newE = (Entity)obj;
-            return (abscissa == newE.getX() && ordinat == newE.getY());
+            return (abscissa == newE.getX() && ordinate == newE.getY());
         }
         return false;
     }
@@ -71,11 +71,11 @@ public abstract class Entity implements Comparator<Entity>, Interface {
     }
 
     /**
-     * set Entity's ordinat value procedure
-     * @param new ordinat value
+     * set Entity's ordinate value procedure
+     * @param new ordinate value
      */
-    public void setY(double ordinat) {
-        this.ordinat = ordinat;
+    public void setY(double ordinate) {
+        this.ordinate = ordinate;
     }
 
     /**
@@ -95,11 +95,11 @@ public abstract class Entity implements Comparator<Entity>, Interface {
     }
 
     /**
-     * get Entity's ordinat function
-     * @return ordinat value
+     * get Entity's ordinate function
+     * @return ordinate value
      */
     public double getY() {
-        return this.ordinat;
+        return this.ordinate;
     }
 
     /**
@@ -111,6 +111,6 @@ public abstract class Entity implements Comparator<Entity>, Interface {
     }
 
     protected double abscissa;
-    protected double ordinat;
+    protected double ordinate;
     protected double speed;
 }
