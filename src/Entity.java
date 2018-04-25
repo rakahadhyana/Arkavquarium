@@ -1,68 +1,68 @@
 import java.util.Comparator;
 
 public abstract class Entity implements Comparator<Entity>, Interface {
-  /**
-   * This Construct abstract object entity with random position.
-   */
-  public Entity() {
-    this.x = Math.random() * Aquarium.getSize();
-    this.y = Math.random() * Aquarium.getSize();
-    this.speed = 1;
-  }
-
-  /**
-   * This Construct abstract object entity with specified position.
-   * @param x entity's axis
-   * @param y entity's ordinate
-   */
-  public Entity(double x, double y) {
-    this.x = x;
-    this.y = y;
-    this.speed = 1;
-  }
-
-  @Override
-  public abstract void move();
-
-  @Override
-  public int compare(Entity e1, Entity e2) {
-    return 0;
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (obj instanceof Entity) {
-      Entity newE = (Entity)obj;
-      return (x == newE.getX() && y == newE.getY());
+    /**
+     * This Construct abstract object entity with random position.
+     */
+    public Entity() {
+        this.abscissa = Math.random() * Aquarium.getSize();
+        this.ordinate = Math.random() * Aquarium.getSize();
+        this.speed = 1;
     }
-    return false;
-  }
 
-  public void setX(double x) {
-    this.x = x;
-  }
+    /**
+     * This Construct abstract object entity with specified position.
+     * @param abscissa entity's axis
+     * @param ordinate entity's ordinate
+     */
+    public Entity(double abscissa, double ordinate) {
+        this.abscissa = abscissa;
+        this.ordinate = ordinate;
+        this.speed = 1;
+    }
 
-  public void setY(double y) {
-    this.y = y;
-  }
+    @Override
+    public abstract void move();
 
-  public void setSpeed(double speed) {
-    this.speed = speed;
-  }
+    @Override
+    public int compare(Entity e1, Entity e2) {
+        return 0;
+    }
 
-  public double getX() {
-    return this.x;
-  }
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Entity) {
+            Entity newE = (Entity)obj;
+            return (abscissa == newE.getX() && ordinate == newE.getY());
+        }
+        return false;
+    }
 
-  public double getY() {
-    return this.y;
-  }
+    public void setX(double abscissa) {
+        this.abscissa = abscissa;
+    }
 
-  public double getSpeed() {
-    return this.speed;
-  }
+    public void setY(double ordinate) {
+        this.ordinate = ordinate;
+    }
 
-  protected double x;
-  protected double y;
-  protected double speed;
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
+    public double getX() {
+        return this.abscissa;
+    }
+
+    public double getY() {
+        return this.ordinate;
+    }
+
+    public double getSpeed() {
+        return this.speed;
+    }
+
+    protected double abscissa;
+    protected double ordinate;
+    protected double speed;
 }
