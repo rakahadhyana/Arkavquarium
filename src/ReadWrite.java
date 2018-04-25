@@ -173,6 +173,56 @@ public class ReadWrite {
             // ex.printStackTrace();
         }
     }
+    public void writeStateEgg(int value, String fileName) {
+        try {
+            // Assume default encoding.
+            FileWriter fileWriter =
+                new FileWriter(fileName);
+
+            // Always wrap FileWriter in BufferedWriter.
+            BufferedWriter bufferedWriter =
+                new BufferedWriter(fileWriter);
+
+            bufferedWriter.write(String.format("%d", value));
+            bufferedWriter.newLine();
+                
+
+            // Always close files.
+            bufferedWriter.close();
+        }
+        catch(IOException ex) {
+            System.out.println(
+                "Error writing to file '"
+                + fileName + "'");
+            // Or we could just do this:
+            // ex.printStackTrace();
+        }
+    }
+    public void writeStateEggPrice(int value, String fileName) {
+        try {
+            // Assume default encoding.
+            FileWriter fileWriter =
+                new FileWriter(fileName);
+
+            // Always wrap FileWriter in BufferedWriter.
+            BufferedWriter bufferedWriter =
+                new BufferedWriter(fileWriter);
+
+            bufferedWriter.write(String.format("%d", value));
+            bufferedWriter.newLine();
+                
+
+            // Always close files.
+            bufferedWriter.close();
+        }
+        catch(IOException ex) {
+            System.out.println(
+                "Error writing to file '"
+                + fileName + "'");
+            // Or we could just do this:
+            // ex.printStackTrace();
+        }
+    }
     public void readStateGuppy(LinkedList<Guppy> ListGuppy, String fileName) {
         // This will reference one line at a time
         String line = null;
@@ -186,7 +236,6 @@ public class ReadWrite {
             BufferedReader bufferedReader = 
                 new BufferedReader(fileReader);
 
-            ListGuppy = new LinkedList<Guppy>();
             while((line = bufferedReader.readLine()) != null) {
                 Double X = Double.parseDouble(line);
                 line = bufferedReader.readLine();
@@ -244,7 +293,6 @@ public class ReadWrite {
             BufferedReader bufferedReader = 
                 new BufferedReader(fileReader);
 
-            ListCoins = new LinkedList<Coins>();
             while((line = bufferedReader.readLine()) != null) {
                 Double X = Double.parseDouble(line);
                 line = bufferedReader.readLine();
@@ -285,7 +333,6 @@ public class ReadWrite {
             BufferedReader bufferedReader = 
                 new BufferedReader(fileReader);
 
-            ListFood = new LinkedList<Food>();
             while((line = bufferedReader.readLine()) != null) {
                 Double X = Double.parseDouble(line);
                 line = bufferedReader.readLine();
@@ -324,7 +371,6 @@ public class ReadWrite {
             BufferedReader bufferedReader = 
                 new BufferedReader(fileReader);
 
-            ListPiranha = new LinkedList<Piranha>();
             while((line = bufferedReader.readLine()) != null) {
                 Double X = Double.parseDouble(line);
                 line = bufferedReader.readLine();
@@ -367,6 +413,74 @@ public class ReadWrite {
         }
     }
     public int readStateMoney(String fileName) {
+        // This will reference one line at a time
+        String line = null;
+
+        try {
+            // FileReader reads text files in the default encoding.
+            FileReader fileReader = 
+                new FileReader(fileName);
+
+            // Always wrap FileReader in BufferedReader.
+            BufferedReader bufferedReader = 
+                new BufferedReader(fileReader);
+
+            line = bufferedReader.readLine();
+            int value = Integer.parseInt(line);
+            
+            // Always close files.
+            bufferedReader.close();     
+            return value;    
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println(
+                "Unable to open file '" + 
+                fileName + "'");                
+        }
+        catch(IOException ex) {
+            System.out.println(
+                "Error reading file '" 
+                + fileName + "'");                  
+            // Or we could just do this: 
+            // ex.printStackTrace();
+        }
+        return 0;
+    }
+    public int readStateEgg(String fileName) {
+        // This will reference one line at a time
+        String line = null;
+
+        try {
+            // FileReader reads text files in the default encoding.
+            FileReader fileReader = 
+                new FileReader(fileName);
+
+            // Always wrap FileReader in BufferedReader.
+            BufferedReader bufferedReader = 
+                new BufferedReader(fileReader);
+
+            line = bufferedReader.readLine();
+            int value = Integer.parseInt(line);
+            
+            // Always close files.
+            bufferedReader.close();     
+            return value;    
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println(
+                "Unable to open file '" + 
+                fileName + "'");                
+        }
+        catch(IOException ex) {
+            System.out.println(
+                "Error reading file '" 
+                + fileName + "'");                  
+            // Or we could just do this: 
+            // ex.printStackTrace();
+        }
+        return 0;
+    }
+    public int readStateEggPrice(String fileName) {
         // This will reference one line at a time
         String line = null;
 
