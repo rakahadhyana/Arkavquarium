@@ -7,10 +7,11 @@
 import java.util.Random;
 
 public class Main {
-  private static LinkedList<Coins> ListCoin = new LinkedList<Coins>();
-  private static LinkedList<Food> ListFood = new LinkedList<Food>();
-  private static LinkedList<Guppy> ListGuppy = new LinkedList<Guppy>();
-  private static LinkedList<Piranha> ListPiranha = new LinkedList<Piranha>();
+  public static LinkedList<Coins> ListCoin = new LinkedList<Coins>();
+  public static LinkedList<Food> ListFood = new LinkedList<Food>();
+  public static LinkedList<Guppy> ListGuppy = new LinkedList<Guppy>();
+  public static LinkedList<Piranha> ListPiranha = new LinkedList<Piranha>();
+  public static Snail snail = new Snail();
   public static boolean mainmenu = true;
   public static int egg;
   public static Integer eggPrice;
@@ -25,14 +26,8 @@ public class Main {
    */
   public static void main(String[] args) throws InterruptedException {
     boolean getCoin = false;
-    Snail snail = new Snail();
     Screen s = new Screen();
     Random rand = new Random();
-    s.setListCoin(ListCoin);
-    s.setSnail(snail);
-    s.setListFood(ListFood);
-    s.setListGuppy(ListGuppy);
-    s.setListPiranha(ListPiranha);
     Frame f = new Frame();
     f.add(s);
     f.setVisible(true);
@@ -51,11 +46,6 @@ public class Main {
             ListFood = new LinkedList<Food>();
             ListGuppy = new LinkedList<Guppy>();
             ListPiranha = new LinkedList<Piranha>();
-            s.setListCoin(ListCoin);
-            s.setSnail(snail);
-            s.setListFood(ListFood);
-            s.setListGuppy(ListGuppy);
-            s.setListPiranha(ListPiranha);
           } else if ((f.getMouseX() < 1160 && f.getMouseX() > 921) 
               && (f.getMouseY() < 533 && f.getMouseY() > 395)) {
             System.exit(0);
@@ -73,11 +63,6 @@ public class Main {
             Coins.money = rw.readStateMoney("moneyState.txt");
             egg = rw.readStateEgg("eggState.txt");
             eggPrice = rw.readStateEggPrice("eggPriceState.txt");
-            s.setListCoin(ListCoin);
-            s.setSnail(snail);
-            s.setListFood(ListFood);
-            s.setListGuppy(ListGuppy);
-            s.setListPiranha(ListPiranha);
             mainmenu = false;
           }
         }
@@ -99,11 +84,6 @@ public class Main {
           ListFood = new LinkedList<Food>();
           ListGuppy = new LinkedList<Guppy>();
           ListPiranha = new LinkedList<Piranha>();
-          s.setListCoin(ListCoin);
-          s.setSnail(snail);
-          s.setListFood(ListFood);
-          s.setListGuppy(ListGuppy);
-          s.setListPiranha(ListPiranha);
         }
         f.getInputMouse().clear();
         s.repaint();
@@ -124,11 +104,6 @@ public class Main {
             ListFood = new LinkedList<Food>();
             ListGuppy = new LinkedList<Guppy>();
             ListPiranha = new LinkedList<Piranha>();
-            s.setListCoin(ListCoin);
-            s.setSnail(snail);
-            s.setListFood(ListFood);
-            s.setListGuppy(ListGuppy);
-            s.setListPiranha(ListPiranha);
           }
         }
         f.getInputMouse().clear();

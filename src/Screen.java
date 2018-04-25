@@ -1,126 +1,50 @@
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-import java.awt.Font;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 
 /**
- * Attributes/objects that want to be shown in the screen
+ * Attributes/objects that want to be shown in the screen.
  */
 public class Screen extends JPanel {
-	
-	private static final long serialVersionUID = 1L;
-	private BufferedImage aquarium;
-	private BufferedImage mainMenu;
-	private BufferedImage foodie;
-	private BufferedImage diamond;
-	private BufferedImage eggos1;
-	private BufferedImage eggos2;
-	private BufferedImage eggos3;
-	private BufferedImage papan;
-	private BufferedImage scroll;
-	private BufferedImage ikanb;
-	private BufferedImage ikanb1;
-	private BufferedImage ikanb2;
-	private BufferedImage ikanbflip;
-	private BufferedImage ikanb1flip;
-	private BufferedImage ikanb2flip;
-	private BufferedImage ikanlaper;
-	private BufferedImage ikanlaper1;
-	private BufferedImage ikanlaper2;
-	private BufferedImage ikanlaperflip;
-	private BufferedImage ikanlaper1flip;
-	private BufferedImage ikanlaper2flip;
-	private BufferedImage PiranhaLeft;
-	private BufferedImage PiranhaRight;
-	private BufferedImage PiranhaSickLeft;
-	private BufferedImage PiranhaSickRight;
-	private BufferedImage pir;
-	private BufferedImage snail0;
-	private BufferedImage snail1;
-	private BufferedImage youlose;
-	private BufferedImage youwin;
-	private BufferedImage coin;
-	private BufferedImage background;
-	private Snail snail;
-	private LinkedList<Coins> ListCoin = new LinkedList<Coins>();
-	private LinkedList<Guppy> ListGuppy = new LinkedList<Guppy>();
-	private LinkedList<Piranha> ListPiranha = new LinkedList<Piranha>();
-	private LinkedList<Food> ListFood = new LinkedList<Food>();
-	/**
-	 * This method returns the current list of coins
-	 * @return List of coins
-	 */	
-	public LinkedList<Coins> getListCoin() {
-		return ListCoin;
-	}
-	/**
-	 * This method sets this' list of coin to the input parameter
-	 * @param listCoin
-	 */
-	public void setListCoin(LinkedList<Coins> listCoin) {
-		ListCoin = listCoin;
-	}
-	/**
-	 * This method returns the current list of guppy 
-	 * @return List of guppy
-	 */
-	public LinkedList<Guppy> getListGuppy() {
-		return ListGuppy;
-	}
-	/**
-	 * This method sets this' list of guppy to the input parameter
-	 * @param listGuppy
-	 */
-	public void setListGuppy(LinkedList<Guppy> listGuppy) {
-		ListGuppy = listGuppy;
-	}
-	/**
-	 * This method returns the current list of piranha
-	 * @return List of piranha
-	 */
-	public LinkedList<Piranha> getListPiranha() {
-		return ListPiranha;
-	}
-	/**
-	 * This method sets this' list of piranha to the input parameter
-	 * @param listPiranha
-	 */
-	public void setListPiranha(LinkedList<Piranha> listPiranha) {
-		ListPiranha = listPiranha;
-	}
-	/**
-	 * This method returns the current list of food
-	 * @return List of food
-	 */
-	public LinkedList<Food> getListFood() {
-		return ListFood;
-	}
-	/**
-	 * This method sets this' list of food to the input parameter
-	 * @param listFood
-	 */	
-	public void setListFood(LinkedList<Food> listFood) {
-		ListFood = listFood;
-	}
-	/**
-	 * This method returns this' snail object
-	 * @return snail
-	 */
-	public Snail getSnail() {
-		return snail;
-	}
-	/**
-	 * This method sets this' snail object to the input parameter
-	 * @param snail
-	 */
-	public void setSnail(Snail snail) {
-		this.snail = snail;
-	}
+  private static final long serialVersionUID = 1L;
+  private BufferedImage aquarium;
+  private BufferedImage mainMenu;
+  private BufferedImage foodie;
+  private BufferedImage diamond;
+  private BufferedImage eggos1;
+  private BufferedImage eggos2;
+  private BufferedImage eggos3;
+  private BufferedImage papan;
+  private BufferedImage scroll;
+  private BufferedImage ikanb;
+  private BufferedImage ikanb1;
+  private BufferedImage ikanb2;
+  private BufferedImage ikanbflip;
+  private BufferedImage ikanb1flip;
+  private BufferedImage ikanb2flip;
+  private BufferedImage ikanlaper;
+  private BufferedImage ikanlaper1;
+  private BufferedImage ikanlaper2;
+  private BufferedImage ikanlaperflip;
+  private BufferedImage ikanlaper1flip;
+  private BufferedImage ikanlaper2flip;
+  private BufferedImage PiranhaLeft;
+  private BufferedImage PiranhaRight;
+  private BufferedImage PiranhaSickLeft;
+  private BufferedImage PiranhaSickRight;
+  private BufferedImage pir;
+  private BufferedImage snail0;
+  private BufferedImage snail1;
+  private BufferedImage youlose;
+  private BufferedImage youwin;
+  private BufferedImage coin;
+  private BufferedImage background;
 	/**
 	 * This method initiates each attribute with the corresponding image
 	 */
@@ -179,68 +103,68 @@ public class Screen extends JPanel {
 		}
 		else{
 			g.drawImage(aquarium, 0, 0, this.getWidth(), this.getHeight(), null);
-			if(snail.getDirection() == Direction.RIGHT ) {
-				g.drawImage(snail0, (int)(snail.getX()*1366/100 - snail0.getWidth()/2), (int)(snail.getY()*650/100), snail0.getWidth(), snail0.getHeight(), null);
+			if(Main.snail.getDirection() == Direction.RIGHT ){
+				g.drawImage(snail0, (int)(Main.snail.getX()*1366/100 - snail0.getWidth()/2), (int)(Main.snail.getY()*650/100), snail0.getWidth(), snail0.getHeight(), null);
 			}else {
-				g.drawImage(snail1, (int)(snail.getX()*1366/100 - snail1.getWidth()/2), (int)(snail.getY()*650/100), snail1.getWidth(), snail1.getHeight(), null);
+				g.drawImage(snail1, (int)(Main.snail.getX()*1366/100 - snail1.getWidth()/2), (int)(Main.snail.getY()*650/100), snail1.getWidth(), snail1.getHeight(), null);
 			}
 			int i = 0;
-			while (!ListCoin.isEmpty() && i < ListCoin.getIdx()) {
-				if(ListCoin.get(i).getValue() >= 1000) {
-					g.drawImage(diamond, (int)(ListCoin.get(i).getX()*1366/100 - diamond.getWidth()/2), (int)(ListCoin.get(i).getY()*768/100 - diamond.getHeight()/2), diamond.getWidth(), diamond.getHeight(), null);
+			while (!Main.ListCoin.isEmpty() && i < Main.ListCoin.getIdx()) {
+				if(Main.ListCoin.get(i).getValue() >= 1000) {
+					g.drawImage(diamond, (int)(Main.ListCoin.get(i).getX()*1366/100 - diamond.getWidth()/2), (int)(Main.ListCoin.get(i).getY()*768/100 - diamond.getHeight()/2), diamond.getWidth(), diamond.getHeight(), null);
 					i++;
 				}else {
-					g.drawImage(coin, (int)(ListCoin.get(i).getX()*1366/100 - coin.getWidth()/2), (int)(ListCoin.get(i).getY()*768/100 - coin.getHeight()/2), coin.getWidth(), coin.getHeight(), null);
+					g.drawImage(coin, (int)(Main.ListCoin.get(i).getX()*1366/100 - coin.getWidth()/2), (int)(Main.ListCoin.get(i).getY()*768/100 - coin.getHeight()/2), coin.getWidth(), coin.getHeight(), null);
 					i++;
 				}
 			}
 			i =0;
-			while (!ListFood.isEmpty() && i < ListFood.getIdx()) {
-				if(ListFood.get(i) != null) {
-					g.drawImage(foodie, (int)(ListFood.get(i).getX()*1366/100 - foodie.getWidth()/2), (int)(ListFood.get(i).getY()*768/100 - foodie.getHeight()/2), foodie.getWidth(), foodie.getHeight(), null);
+			while (!Main.ListFood.isEmpty() && i < Main.ListFood.getIdx()) {
+				if(Main.ListFood.get(i) != null) {
+					g.drawImage(foodie, (int)(Main.ListFood.get(i).getX()*1366/100 - foodie.getWidth()/2), (int)(Main.ListFood.get(i).getY()*768/100 - foodie.getHeight()/2), foodie.getWidth(), foodie.getHeight(), null);
 				}
 				i++;
 			}	
 			i =0;
-			while (!ListGuppy.isEmpty() && i < ListGuppy.getIdx()) {
-				if (ListGuppy.get(i).getDirection() == Direction.RIGHT) {
-			        if(!ListGuppy.get(i).getIsFull()){
-			            if (ListGuppy.get(i).getPhase() == 1){
-			            	g.drawImage(ikanlaper2flip, (int)(ListGuppy.get(i).getX()*1300/100), (int)(ListGuppy.get(i).getY()*700/100), ikanlaper2flip.getWidth(), ikanlaper2flip.getHeight(), null);
+			while (!Main.ListGuppy.isEmpty() && i < Main.ListGuppy.getIdx()) {
+				if (Main.ListGuppy.get(i).getDirection() == Direction.RIGHT) {
+			        if(!Main.ListGuppy.get(i).getIsFull()){
+			            if (Main.ListGuppy.get(i).getPhase() == 1){
+			            	g.drawImage(ikanlaper2flip, (int)(Main.ListGuppy.get(i).getX()*1300/100), (int)(Main.ListGuppy.get(i).getY()*700/100), ikanlaper2flip.getWidth(), ikanlaper2flip.getHeight(), null);
 			            } else 
-			            if (ListGuppy.get(i).getPhase() == 2) {
-			            	g.drawImage(ikanlaper1flip, (int)(ListGuppy.get(i).getX()*1300/100), (int)(ListGuppy.get(i).getY()*700/100), ikanlaper1flip.getWidth(), ikanlaper1flip.getHeight(), null);              
+			            if (Main.ListGuppy.get(i).getPhase() == 2) {
+			            	g.drawImage(ikanlaper1flip, (int)(Main.ListGuppy.get(i).getX()*1300/100), (int)(Main.ListGuppy.get(i).getY()*700/100), ikanlaper1flip.getWidth(), ikanlaper1flip.getHeight(), null);              
 			            } else  {
-			            	g.drawImage(ikanlaperflip, (int)(ListGuppy.get(i).getX()*1300/100), (int)(ListGuppy.get(i).getY()*700/100), ikanlaperflip.getWidth(), ikanlaperflip.getHeight(), null);
+			            	g.drawImage(ikanlaperflip, (int)(Main.ListGuppy.get(i).getX()*1300/100), (int)(Main.ListGuppy.get(i).getY()*700/100), ikanlaperflip.getWidth(), ikanlaperflip.getHeight(), null);
 			            }
 			        }else{
-			            if (ListGuppy.get(i).getPhase() == 1) {
-			            	g.drawImage(ikanb2flip, (int)(ListGuppy.get(i).getX()*1300/100), (int)(ListGuppy.get(i).getY()*700/100), ikanb2flip.getWidth(), ikanb2flip.getHeight(), null);
+			            if (Main.ListGuppy.get(i).getPhase() == 1) {
+			            	g.drawImage(ikanb2flip, (int)(Main.ListGuppy.get(i).getX()*1300/100), (int)(Main.ListGuppy.get(i).getY()*700/100), ikanb2flip.getWidth(), ikanb2flip.getHeight(), null);
 			            } else
-			            if (ListGuppy.get(i).getPhase() == 2) {
-			            	g.drawImage(ikanb1flip, (int)(ListGuppy.get(i).getX()*1300/100), (int)(ListGuppy.get(i).getY()*700/100), ikanb1flip.getWidth(), ikanb1flip.getHeight(), null);
+			            if (Main.ListGuppy.get(i).getPhase() == 2) {
+			            	g.drawImage(ikanb1flip, (int)(Main.ListGuppy.get(i).getX()*1300/100), (int)(Main.ListGuppy.get(i).getY()*700/100), ikanb1flip.getWidth(), ikanb1flip.getHeight(), null);
 			            } else {
-			            	g.drawImage(ikanbflip, (int)(ListGuppy.get(i).getX()*1300/100), (int)(ListGuppy.get(i).getY()*700/100), ikanbflip.getWidth(), ikanbflip.getHeight(), null);               
+			            	g.drawImage(ikanbflip, (int)(Main.ListGuppy.get(i).getX()*1300/100), (int)(Main.ListGuppy.get(i).getY()*700/100), ikanbflip.getWidth(), ikanbflip.getHeight(), null);               
 			            }
 			        }
 				} else {
-					if(!ListGuppy.get(i).getIsFull()){
-			            if (ListGuppy.get(i).getPhase() == 1){
-			            	g.drawImage(ikanlaper2, (int)(ListGuppy.get(i).getX()*1300/100), (int)(ListGuppy.get(i).getY()*700/100), ikanlaper2.getWidth(), ikanlaper2.getHeight(), null);
+					if(!Main.ListGuppy.get(i).getIsFull()){
+			            if (Main.ListGuppy.get(i).getPhase() == 1){
+			            	g.drawImage(ikanlaper2, (int)(Main.ListGuppy.get(i).getX()*1300/100), (int)(Main.ListGuppy.get(i).getY()*700/100), ikanlaper2.getWidth(), ikanlaper2.getHeight(), null);
 			            } else 
-			            if (ListGuppy.get(i).getPhase() == 2) {
-			            	g.drawImage(ikanlaper1, (int)(ListGuppy.get(i).getX()*1300/100), (int)(ListGuppy.get(i).getY()*700/100), ikanlaper1.getWidth(), ikanlaper1.getHeight(), null);               
+			            if (Main.ListGuppy.get(i).getPhase() == 2) {
+			            	g.drawImage(ikanlaper1, (int)(Main.ListGuppy.get(i).getX()*1300/100), (int)(Main.ListGuppy.get(i).getY()*700/100), ikanlaper1.getWidth(), ikanlaper1.getHeight(), null);               
 			            } else  {
-			            	g.drawImage(ikanlaper, (int)(ListGuppy.get(i).getX()*1300/100), (int)(ListGuppy.get(i).getY()*700/100), ikanlaper.getWidth(), ikanlaper.getHeight(), null);
+			            	g.drawImage(ikanlaper, (int)(Main.ListGuppy.get(i).getX()*1300/100), (int)(Main.ListGuppy.get(i).getY()*700/100), ikanlaper.getWidth(), ikanlaper.getHeight(), null);
 			            }
 			        }else{
-			            if (ListGuppy.get(i).getPhase() == 1) {
-			            	g.drawImage(ikanb2, (int)(ListGuppy.get(i).getX()*1300/100), (int)(ListGuppy.get(i).getY()*700/100), ikanb2.getWidth(), ikanb2.getHeight(), null);
+			            if (Main.ListGuppy.get(i).getPhase() == 1) {
+			            	g.drawImage(ikanb2, (int)(Main.ListGuppy.get(i).getX()*1300/100), (int)(Main.ListGuppy.get(i).getY()*700/100), ikanb2.getWidth(), ikanb2.getHeight(), null);
 			            } else
-			            if (ListGuppy.get(i).getPhase() == 2) {
-			            	g.drawImage(ikanb1, (int)(ListGuppy.get(i).getX()*1300/100), (int)(ListGuppy.get(i).getY()*700/100), ikanb1.getWidth(), ikanb1.getHeight(), null);               
+			            if (Main.ListGuppy.get(i).getPhase() == 2) {
+			            	g.drawImage(ikanb1, (int)(Main.ListGuppy.get(i).getX()*1300/100), (int)(Main.ListGuppy.get(i).getY()*700/100), ikanb1.getWidth(), ikanb1.getHeight(), null);               
 			            } else {
-			            	g.drawImage(ikanb, (int)(ListGuppy.get(i).getX()*1300/100), (int)(ListGuppy.get(i).getY()*700/100), ikanb.getWidth(), ikanb.getHeight(), null);               
+			            	g.drawImage(ikanb, (int)(Main.ListGuppy.get(i).getX()*1300/100), (int)(Main.ListGuppy.get(i).getY()*700/100), ikanb.getWidth(), ikanb.getHeight(), null);               
 			            }
 			        }
 				}
@@ -249,18 +173,18 @@ public class Screen extends JPanel {
 			
 			
 			i =0;
-			while (!ListPiranha.isEmpty() && i < ListPiranha.getIdx()) {
-				if (ListPiranha.get(i).getDirection() == Direction.RIGHT) {
-			        if(!ListPiranha.get(i).getIsFull()){
-			        	g.drawImage(PiranhaSickRight, (int)(ListPiranha.get(i).getX()*1366/100 - PiranhaSickRight.getWidth()/2), (int)(ListPiranha.get(i).getY()*768/100 - PiranhaSickRight.getHeight()/2), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
+			while (!Main.ListPiranha.isEmpty() && i < Main.ListPiranha.getIdx()) {
+				if (Main.ListPiranha.get(i).getDirection() == Direction.RIGHT) {
+			        if(!Main.ListPiranha.get(i).getIsFull()){
+			        	g.drawImage(PiranhaSickRight, (int)(Main.ListPiranha.get(i).getX()*1366/100 - PiranhaSickRight.getWidth()/2), (int)(Main.ListPiranha.get(i).getY()*768/100 - PiranhaSickRight.getHeight()/2), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
 			        }else{
-			        	g.drawImage(PiranhaRight, (int)(ListPiranha.get(i).getX()*1366/100 - PiranhaRight.getWidth()/2), (int)(ListPiranha.get(i).getY()*768/100 - PiranhaRight.getHeight()/2), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
+			        	g.drawImage(PiranhaRight, (int)(Main.ListPiranha.get(i).getX()*1366/100 - PiranhaRight.getWidth()/2), (int)(Main.ListPiranha.get(i).getY()*768/100 - PiranhaRight.getHeight()/2), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
 			        }
 				} else {
-					if(!ListPiranha.get(i).getIsFull()){
-						g.drawImage(PiranhaSickLeft, (int)(ListPiranha.get(i).getX()*1366/100 - PiranhaSickLeft.getWidth()/2), (int)(ListPiranha.get(i).getY()*768/100 - PiranhaSickLeft.getHeight()/2), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
+					if(!Main.ListPiranha.get(i).getIsFull()){
+						g.drawImage(PiranhaSickLeft, (int)(Main.ListPiranha.get(i).getX()*1366/100 - PiranhaSickLeft.getWidth()/2), (int)(Main.ListPiranha.get(i).getY()*768/100 - PiranhaSickLeft.getHeight()/2), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
 			        }else{
-			        	g.drawImage(PiranhaLeft, (int)(ListPiranha.get(i).getX()*1366/100 - PiranhaLeft.getWidth()/2), (int)(ListPiranha.get(i).getY()*768/100 - PiranhaLeft.getHeight()/2), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
+			        	g.drawImage(PiranhaLeft, (int)(Main.ListPiranha.get(i).getX()*1366/100 - PiranhaLeft.getWidth()/2), (int)(Main.ListPiranha.get(i).getY()*768/100 - PiranhaLeft.getHeight()/2), PiranhaRight.getWidth(), PiranhaRight.getHeight(), null);
 			        }
 				}
 				i++;
